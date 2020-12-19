@@ -39,11 +39,12 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         //DontDestroyOnLoad(gameObject);
-        Debug.Log("Get Stage Managers");
+        //Debug.Log("Get Stage Managers");
         stageManager = GetComponent<StageManager>();
     }
     void Start()
     {
+        //Debug.Log("Start");
         stageManager.CreateEventList();
         stageManager.SetupEvents();
     }

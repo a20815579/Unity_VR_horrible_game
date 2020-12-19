@@ -24,6 +24,7 @@ OS：為...為什麼我的桌面會跑出這個？！天哪...怎麼會這樣...
         
         /* add event-triggered functions to delegate list */
         AddEvent(0, ShowItemImage); //click window
+        AddEvent(1, HideItemImage); //click monitor
         
     }
 

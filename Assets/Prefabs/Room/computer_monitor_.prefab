@@ -39,7 +39,11 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 756380020373707270}
-  m_Mesh: {fileID: 0}
+<<<<<<< Updated upstream
+  m_Mesh: {fileID: -462981019419857548, guid: 1c30bafbce523674193cb96a1deab040, type: 3}
+=======
+  m_Mesh: {fileID: 4579454407841743219, guid: 1c30bafbce523674193cb96a1deab040, type: 3}
+>>>>>>> Stashed changes
 --- !u!23 &437910448982680998
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -59,7 +63,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2895064947943234598, guid: 1c30bafbce523674193cb96a1deab040, type: 3}
-  - {fileID: 2994280962357473363, guid: 1c30bafbce523674193cb96a1deab040, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
