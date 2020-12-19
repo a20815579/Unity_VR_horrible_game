@@ -7,7 +7,9 @@ public class StageManager : MonoBehaviour
 {
     /* put gameobject here */
     //private GameObject xxx;
+    [SerializeField]
     protected int currentId = 0;
+    [SerializeField]
     protected List<Action> ResponseToInput = new List<Action>();
     [SerializeField]
     protected int totalEventSize; //assign the event size in Inspector
@@ -94,6 +96,8 @@ public class StageManager : MonoBehaviour
 
     protected void HideItemImage()
     {
+        Debug.Log("hide Item Image");
+
         ItemImageUICtrl.self.HideItemImage();
     }
 

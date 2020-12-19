@@ -22,7 +22,7 @@ public class ItemImageUICtrl : MonoBehaviour
    
     public void ShowItemImage()
     {
-
+        Debug.Log("showImage");
         itemName.enabled = true;
         itemImage.enabled = true;
         itemName.text = items[current_idx].itemName;

@@ -21,7 +21,11 @@ public class TouchedControllerVR : MonoBehaviour
     }
 
     // trigger
+<<<<<<< Updated upstream
     void Update()
+=======
+    public void ResponseOnInput()
+>>>>>>> Stashed changes
     {
         if (OVRInput.GetDown(OVRInput.RawButton.A)) {
             RaycastHit hit;
