@@ -16,8 +16,8 @@ public class Stage_2_Manager : StageManager
 
         //ReactOnInput(0); //uncomment this line if first event needs to start defaultly
 
-        AddEvent(0, ShowPlayerUIMessage);   // 0: keyDown on roommate -> show message
-        AddEvent(1, ShowPlayerUIMessage);   // 1: keyDown -> show message
+        AddEvent(0, ShowPlayerUIMessage);   // 0: show message
+        AddEvent(1, HidePlayerUIMessage);   // 1: keyDown -> hide message
         AddEvent(2, HidePlayerUIMessage);   // 2: keyDown -> hide message
         AddEvent(3, ShowPlayerUIMessage);   // 3: keyDown on exam paper -> show message
         AddEvent(4, ShowPlayerUIMessage);   // 4: keyDown -> show message
@@ -31,5 +31,7 @@ public class Stage_2_Manager : StageManager
         AddEvent(12, ShowPlayerUIMessage);   // 12: keyDown -> show message
         AddEvent(13, ShowPlayerUIMessage);   // 13: keyDown -> show message
         AddEvent(14, TransitionToNextScene);   // 14: keyDown -> change scene
+
+        ReactOnInput(0);
     }
 }
