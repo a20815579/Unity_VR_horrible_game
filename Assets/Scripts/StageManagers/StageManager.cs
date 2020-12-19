@@ -87,7 +87,15 @@ public class StageManager : MonoBehaviour
         PlayerUI_TextCtrl.self.HideText();
     }
 
+    protected void ShowItemImage()
+    {
+        ItemImageUICtrl.self.ShowItemImage();
+    }
 
+    protected void HideItemImage()
+    {
+        ItemImageUICtrl.self.HideItemImage();
+    }
 
     /*
     private void ShowHint()
