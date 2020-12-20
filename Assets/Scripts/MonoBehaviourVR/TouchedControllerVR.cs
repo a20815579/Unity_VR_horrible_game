@@ -21,24 +21,9 @@ public class TouchedControllerVR : MonoBehaviour
     }
 
     // trigger
-<<<<<<< Updated upstream
-    void Update()
-=======
     public void ResponseOnInput()
->>>>>>> Stashed changes
     {
-        if (OVRInput.GetDown(OVRInput.RawButton.A)) {
-            RaycastHit hit;
-            //Transform centerEye = OVRCameraRig.centerEyeAnchor();
-            //Transform rightHand = OVRCameraRig.rightHandAnchor();
-            Vector3 direction = 
-                rightHand.transform.position - centerEye.transform.position;
-            if (Physics.Raycast(centerEye.transform.position, direction, out hit)) {
-                if (hit.transform.gameObject == gameObject) {
-                    Debug.Log("Raycast hit!");
-                    inputActions.ResponseOnInput();
-                }
-            }
-        }    
+        Debug.Log("ResponseOnInput");
+        inputActions.ResponseOnInput();
     }
 }
