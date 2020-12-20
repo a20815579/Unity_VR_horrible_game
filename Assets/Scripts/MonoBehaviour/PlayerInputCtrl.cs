@@ -26,8 +26,10 @@ public class PlayerInputCtrl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             Debug.Log("keydown");
-            inputActions[current_idx].ResponseOnInput();
-            current_idx++;
+            if (inputActions[current_idx].ResponseOnInput())
+            {
+                current_idx++;
+            }
         }
     }
 
