@@ -21,12 +21,7 @@ public class Stage_1_Manager : StageManager
     */
     public FallManCtrl fallMan;
     public WordCtrl word;
-
-    public AudioSource Effect_player, BGM_player;
-    public AudioClip[] effects, BGMs;
-    [SerializeField]
-    private int effect_idx, bgm_idx;
-
+    
     public override void SetupEvents()
     {
         Debug.Log("Stage 1 event setup");
@@ -64,18 +59,5 @@ public class Stage_1_Manager : StageManager
         word.Appear();
         HidePlayerUIMessage();
     }
-    private void PlaySFX()
-    {
-        Debug.Log(effect_idx);
-        Effect_player.clip = effects[effect_idx];
-        Effect_player.Play();
-        effect_idx++;
-    }
-
-    private void PlayBGM()
-    {
-        BGM_player.clip = BGMs[bgm_idx];
-        BGM_player.Play();
-        bgm_idx++;
-    }
+   
 }

@@ -13,7 +13,12 @@ public class StageManager : MonoBehaviour
     protected List<Action> ResponseToInput = new List<Action>();
     [SerializeField]
     protected int totalEventSize; //assign the event size in Inspector
-   
+
+    public AudioSource Effect_player, BGM_player;
+    public AudioClip[] effects, BGMs;
+    [SerializeField]
+    protected int effect_idx, bgm_idx;
+
     public bool LoadWithChapter = true;
 
     public event Action<int> OnEventIdxChanged;
@@ -122,6 +127,21 @@ public class StageManager : MonoBehaviour
     IEnumerator SimpleDelay(float sec)
     {
         yield return new WaitForSeconds(sec);
+    }
+
+    protected void PlaySFX()
+    {
+        Debug.Log(effect_idx);
+        Effect_player.clip = effects[effect_idx];
+        Effect_player.Play();
+        effect_idx++;
+    }
+
+    protected void PlayBGM()
+    {
+        BGM_player.clip = BGMs[bgm_idx];
+        BGM_player.Play();
+        bgm_idx++;
     }
     /*
     private void ShowHint()
