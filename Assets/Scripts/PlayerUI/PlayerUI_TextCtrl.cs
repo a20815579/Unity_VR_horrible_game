@@ -18,6 +18,7 @@ public class PlayerUI_TextCtrl : MonoBehaviour
     {
         self = this;
         text = GetComponent<Text>();
+        Debug.Log(name);
     }
     
     public void ShowText()
