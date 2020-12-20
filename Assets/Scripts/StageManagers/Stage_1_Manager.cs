@@ -21,19 +21,25 @@ public class Stage_1_Manager : StageManager
     */
     public FallManCtrl fallMan;
     public WordCtrl word;
-    
+
     public override void SetupEvents()
     {
         Debug.Log("Stage 1 event setup");
-        
+
         /* add event-triggered functions to delegate list */
         AddEvent(0, WierdSound); //play wierd sound -> delay(1s)
         AddEvent(1, ShowPlayerUIMessage); //show message: OS：是風聲嗎...？去關個窗戶好了 ->wait for click window
-        AddEvent(2, StudentFall); //click window -> StudentFall ->Delay(1s)
-        AddEvent(3, ShowPlayerUIMessage); //(X)->未知1：...啊！有人從頂樓跳下來！！
-        AddEvent(4, ShowPlayerUIMessage); //nextLine->未知2：他...他的......頭...呢？
-        AddEvent(5, ShowPlayerUIMessage); //nextLine->未知3：這衣服是...學...學長？！矛求學長？！
-        AddEvent(6, ShowWord); //nextLine->ShowWord + hide message
+        AddEvent(2, HidePlayerUIMessage); //nextLine -> hide message ->wait for click window
+        AddEvent(3, StudentFall); //click window -> StudentFall ->Delay(1s)
+        AddEvent(4, ShowPlayerUIMessage); //(X)->未知1：...啊！有人從頂樓跳下來！！
+        AddEvent(5, ShowPlayerUIMessage); //nextLine->未知2：他...他的......頭...呢？
+        AddEvent(6, ShowPlayerUIMessage); //nextLine->未知3：這衣服是...學...學長？！矛求學長？！
+        AddEvent(7, EnableWord); //nextLine->enableWord + hide message
+        AddEvent(8, GazeAtWord); //gaze at word->為...為什麼我的桌面會跑出這個？！
+        AddEvent(9, ShowPlayerUIMessage); //nextLine->天哪...怎麼會這樣...好害怕...
+        AddEvent(10, ShowPlayerUIMessage); //nextLine->不然我先照著上面的指示做好了...
+        AddEvent(11, ShowPlayerUIMessage); //nextLine->那位學長好像是住844，去問問看他的室友，看會不會有什麼線索
+        AddEvent(12, NextScene); //nextLine->next scene
         ReactOnInput(0);
     }
 
@@ -47,17 +53,28 @@ public class Stage_1_Manager : StageManager
     {
         fallMan.Fall();
         Debug.Log("student fall");
-        Delay(1f);
-        PlaySFX();
-        Delay(1f);
-        PlayBGM();
+        Delay(0.5f, PlaySFX);
+        Delay(1f, PlayBGM);
         DelayThenDoNext(1f);
     }
 
-    private void ShowWord()
+    private void EnableWord()
     {
-        word.Appear();
         HidePlayerUIMessage();
+        word.enabled = true;
     }
-   
+
+    private void GazeAtWord()
+    {
+        PlaySFX();
+        ShowPlayerUIMessage();
+    }
+
+    void NextScene()
+    {
+        TransitionToNextScene();
+        Delay(1f, PlaySFX);
+        Delay(1f, PlaySFX);
+    }
+    
 }

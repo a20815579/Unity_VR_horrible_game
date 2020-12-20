@@ -9,10 +9,11 @@ public class PlayerInputCtrlVR : MonoBehaviour
     int[] action_idx;
     [SerializeField]
     static int current_idx;
+    public Collider[] colliders;
 
     private void Start()
     {
-        current_idx = 0;
+        current_idx = -1;
         // create instance of ScriptableObject
         inputActions = new InputActions[action_idx.Length];
         for (int i = 0; i < action_idx.Length; i++)
@@ -36,15 +37,29 @@ public class PlayerInputCtrlVR : MonoBehaviour
     }
     public void CheckEventIdx(int idx)
     {
-        GetComponent<BoxCollider>().enabled = (idx == action_idx[current_idx]);
-        
+        if (current_idx + 1 >= action_idx.Length)
+        {
+            if (GameManager.instance)
+            {
+                GameManager.instance.gameObject.GetComponent<StageManager>().OnEventIdxChanged -= CheckEventIdx;
+            }
+            return;
+        }
+        if (idx == action_idx[current_idx + 1])
+        {
+            colliders[1].enabled = colliders[0].enabled = true;
+            current_idx++;
+            
+        }
+        else
+        {
+            colliders[1].enabled = colliders[0].enabled = false;
+
+        }
     }
 
     public void NextLine()
     {
-        if (inputActions[current_idx].ResponseOnInput())
-        {
-            current_idx++;
-        }
+        inputActions[current_idx].ResponseOnInput();
     }
 }

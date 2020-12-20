@@ -10,6 +10,10 @@ public class LoadingScenesCtrl : MonoBehaviour
     {
         self = this;
     }
+    private void Start()
+    {
+        GetComponent<Animator>().SetBool("WithChapter", GameManager.instance.GetLoadWithChapter());
+    }
     public void SceneFinishedLoading()
     {
         GameManager.instance.StageStart();
@@ -17,6 +21,13 @@ public class LoadingScenesCtrl : MonoBehaviour
     public void TransitionToNextScene()
     {
         Debug.Log("NextScene");
+        GetComponent<Animator>().Play("SceneFadeOut");
+    }
+    public void Go()
+    {
+        Debug.Log("Go");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    
 }
