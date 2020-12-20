@@ -26,8 +26,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
-    public GameObject LoadingScenes;
+    
 
     void Awake()
     {
