@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraRayDetection : MonoBehaviour
 {
     public Camera viewCamera;
+    [SerializeField]
     private GameObject lastGazedUpon;
     void Update()
     {
@@ -23,5 +24,6 @@ public class CameraRayDetection : MonoBehaviour
             hit.transform.SendMessage("GazingUpon", SendMessageOptions.DontRequireReceiver);
             lastGazedUpon = hit.transform.gameObject;
         }
+
     }
 }

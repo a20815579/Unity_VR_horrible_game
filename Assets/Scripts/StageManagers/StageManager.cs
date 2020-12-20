@@ -87,7 +87,10 @@ public class StageManager : MonoBehaviour
     /* store all of the event-triggered functions here */
     protected void TransitionToNextScene()
     {
-        GameManager.instance.TransitionToNextScene();
+        if (LoadingScenesCtrl.self)
+        {
+            LoadingScenesCtrl.self.TransitionToNextScene();
+        }
     }
 
     protected void ShowPlayerUIMessage()
@@ -115,9 +118,9 @@ public class StageManager : MonoBehaviour
     {
         StartCoroutine(NextDelay(sec));
     }
-    protected void Delay(float sec)
+    protected void Delay(float sec, Action func)
     {
-        StartCoroutine(SimpleDelay(sec));
+        StartCoroutine(SimpleDelay(sec, func));
     }
 
     IEnumerator NextDelay(float sec)
@@ -126,9 +129,10 @@ public class StageManager : MonoBehaviour
         ReactOnInput(currentId);
     }
 
-    IEnumerator SimpleDelay(float sec)
+    IEnumerator SimpleDelay(float sec, Action func)
     {
         yield return new WaitForSeconds(sec);
+        func();
     }
 
     protected void PlaySFX()

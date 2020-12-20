@@ -2,40 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-public class WordCtrl : MonoBehaviour, iGazeReceiver
+public class WordCtrl : MonoBehaviour
 {
-    private bool isGazingUpon;
-    //public event Action OnAppearEndEvent;
+    private InputActions inputActions;
+    [SerializeField]
+    int _id;
+
+    public GameObject wordImg;
+    public ItemGazeDetect gazeDetect;
+
+    void Awake()
+    {
+        // create instance of ScriptableObject
+        inputActions = ScriptableObject.CreateInstance<InputActions>();
+        inputActions.id = _id;
+        this.enabled = false;
+    }
+    
+
     private void Update()
     {
-        if (isGazingUpon)
+        if (gazeDetect.IsGazingUpon)
         {
-            Debug.Log("gaze");
+            Appear();
         }
     }
-
     public void Appear()
     {
-        gameObject.SetActive(true);
+        wordImg.GetComponent<Animation>().Play("FadeIn");
+        inputActions.ResponseOnInput();
+
+        this.enabled = false;
     }
-
-    //public void OnAppearEnd()
-    //{
-    //    OnAppearEndEvent?.Invoke();
-    //}
-
-    public void Disappear()
-    {
-        GetComponent<Animation>().Play("FadeOut");
-    }
-
-    public void GazingUpon()
-{
-  isGazingUpon = true;
-}
-
-public void NotGazingUpon()
-{
-  isGazingUpon = false;
-}
+    
 }

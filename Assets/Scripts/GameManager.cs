@@ -26,7 +26,8 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    
+
+    public GameObject LoadingScenes;
 
     void Awake()
     {
@@ -34,14 +35,7 @@ public class GameManager : MonoBehaviour
         //DontDestroyOnLoad(gameObject);
         //Debug.Log("Get Stage Managers");
         stageManager = GetComponent<StageManager>();
-        if (LoadingScenesCtrl.self)
-        {
-            LoadingScenesCtrl.self.GetComponent<Animator>().SetBool("WithChapter", stageManager.LoadWithChapter);
-        }
-        else
-        {
-            StageStart();
-        }
+        StageStart();
     }
     
 
@@ -56,13 +50,9 @@ public class GameManager : MonoBehaviour
     {
         return stageManager.ReactOnInput(id);
     }
-
-    public void TransitionToNextScene()
+    
+    public bool GetLoadWithChapter()
     {
-        Debug.Log("NextScene");
-        if (LoadingScenesCtrl.self)
-        {
-            LoadingScenesCtrl.self.TransitionToNextScene();
-        }
+        return stageManager.LoadWithChapter;
     }
 }
