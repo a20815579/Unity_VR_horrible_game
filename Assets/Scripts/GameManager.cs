@@ -8,9 +8,10 @@ public class GameManager : MonoBehaviour
 {
     //Stage Manager
     StageManager stageManager;
-
+    static bool created;
     /* singleton */
     private static GameManager _instance;
+   
     public static GameManager instance
     {
         get
@@ -19,31 +20,34 @@ public class GameManager : MonoBehaviour
             {
                 return _instance;
             }
-
-            // Find the active singleton already created
-            _instance = FindObjectOfType<GameManager>();
-            if (_instance != null)
+            else
             {
-                return _instance;
+                return null;
             }
-
-            // create singleton
-            GameObject obj = new GameObject();
-            obj.name = "GameManager";
-            _instance = obj.AddComponent<GameManager>();
-            return _instance;
         }
     }
     
 
     void Awake()
     {
+        _instance = this;
         //DontDestroyOnLoad(gameObject);
-        Debug.Log("Get Stage Managers");
+        //Debug.Log("Get Stage Managers");
         stageManager = GetComponent<StageManager>();
+        if (LoadingScenesCtrl.self)
+        {
+            LoadingScenesCtrl.self.GetComponent<Animator>().SetBool("WithChapter", stageManager.LoadWithChapter);
+        }
+        else
+        {
+            StageStart();
+        }
     }
-    void Start()
+    
+
+    public void StageStart()
     {
+        //Debug.Log("Start");
         stageManager.CreateEventList();
         stageManager.SetupEvents();
     }
@@ -56,6 +60,9 @@ public class GameManager : MonoBehaviour
     public void TransitionToNextScene()
     {
         Debug.Log("NextScene");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (LoadingScenesCtrl.self)
+        {
+            LoadingScenesCtrl.self.TransitionToNextScene();
+        }
     }
 }

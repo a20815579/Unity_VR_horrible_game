@@ -7,15 +7,25 @@ public class StageManager : MonoBehaviour
 {
     /* put gameobject here */
     //private GameObject xxx;
+    [SerializeField]
     protected int currentId = 0;
+    [SerializeField]
     protected List<Action> ResponseToInput = new List<Action>();
     [SerializeField]
     protected int totalEventSize; //assign the event size in Inspector
 
+    public AudioSource Effect_player, BGM_player;
+    public AudioClip[] effects, BGMs;
+    [SerializeField]
+    protected int effect_idx, bgm_idx;
+
+    public bool LoadWithChapter = true;
+
+    public event Action<int> OnEventIdxChanged;
     //For hint
     //private int interactionObj_Id = 0;
     //public BoxCollider[] objectColliders;
-
+    
     public void CreateEventList()
     {
         if (totalEventSize == 0)
@@ -37,13 +47,13 @@ public class StageManager : MonoBehaviour
     {
         if (idx >= totalEventSize)
         {
-            Debug.LogError("Failed to AddEvent! Event Index out of bound.");
+            Debug.LogError($@"Failed to AddEvent! Event Index out of bound. 
+            idx = {idx}, totalEventSize = {totalEventSize}");
             return;
         }
-        Debug.Log(ResponseToInput.Count);
         ResponseToInput[idx] = func;
     }
-
+    
     public virtual void SetupEvents()
     {
         
@@ -66,6 +76,8 @@ public class StageManager : MonoBehaviour
             Debug.Log($"Invoke Event {id}");
             ResponseToInput[id].Invoke();
             currentId++;
+
+            OnEventIdxChanged?.Invoke(currentId);
             return true;
         }
 
@@ -80,6 +92,7 @@ public class StageManager : MonoBehaviour
 
     protected void ShowPlayerUIMessage()
     {
+        Debug.Log("show");
         PlayerUI_TextCtrl.self.ShowText();
     }
     protected void HidePlayerUIMessage()
@@ -94,9 +107,44 @@ public class StageManager : MonoBehaviour
 
     protected void HideItemImage()
     {
+        Debug.Log("hide Item Image");
         ItemImageUICtrl.self.HideItemImage();
     }
 
+    protected void DelayThenDoNext(float sec)
+    {
+        StartCoroutine(NextDelay(sec));
+    }
+    protected void Delay(float sec)
+    {
+        StartCoroutine(SimpleDelay(sec));
+    }
+
+    IEnumerator NextDelay(float sec)
+    {
+        yield return new WaitForSeconds(sec);
+        ReactOnInput(currentId);
+    }
+
+    IEnumerator SimpleDelay(float sec)
+    {
+        yield return new WaitForSeconds(sec);
+    }
+
+    protected void PlaySFX()
+    {
+        Debug.Log(effect_idx);
+        Effect_player.clip = effects[effect_idx];
+        Effect_player.Play();
+        effect_idx++;
+    }
+
+    protected void PlayBGM()
+    {
+        BGM_player.clip = BGMs[bgm_idx];
+        BGM_player.Play();
+        bgm_idx++;
+    }
     /*
     private void ShowHint()
     {
@@ -107,4 +155,5 @@ public class StageManager : MonoBehaviour
     {
         objectColliders[interactionObj_Id].enabled = true;
     }*/
+
 }

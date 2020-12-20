@@ -17,7 +17,9 @@ public class TestWindowClick : MonoBehaviour
     // trigger
     void OnMouseDown()
     {
-        Debug.Log("mouseDown");
-        inputActions.ResponseOnInput();
+        if (inputActions.ResponseOnInput())
+        {
+            Debug.Log("mouseDown");
+        }
     }
 }

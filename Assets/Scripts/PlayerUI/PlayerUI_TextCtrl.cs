@@ -22,6 +22,7 @@ public class PlayerUI_TextCtrl : MonoBehaviour
     
     public void ShowText()
     {
+        text.enabled = true;
         message_idx++;
         if (message_idx < messages.Length)
         {
@@ -31,5 +32,7 @@ public class PlayerUI_TextCtrl : MonoBehaviour
     public void HideText()
     {
         text.text = "";
+        text.enabled = false;
+
     }
 }
