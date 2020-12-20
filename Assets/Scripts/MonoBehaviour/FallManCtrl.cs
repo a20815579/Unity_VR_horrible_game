@@ -8,4 +8,5 @@ public class FallManCtrl : MonoBehaviour
     {
         GetComponent<Rigidbody>().useGravity = true;
     }
+    
 }

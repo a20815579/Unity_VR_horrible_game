@@ -13,11 +13,14 @@ public class StageManager : MonoBehaviour
     protected List<Action> ResponseToInput = new List<Action>();
     [SerializeField]
     protected int totalEventSize; //assign the event size in Inspector
+   
+    public bool LoadWithChapter = true;
 
+    public event Action<int> OnEventIdxChanged;
     //For hint
     //private int interactionObj_Id = 0;
     //public BoxCollider[] objectColliders;
-
+    
     public void CreateEventList()
     {
         if (totalEventSize == 0)
@@ -42,10 +45,9 @@ public class StageManager : MonoBehaviour
             Debug.LogError("Failed to AddEvent! Event Index out of bound.");
             return;
         }
-        Debug.Log(ResponseToInput.Count);
         ResponseToInput[idx] = func;
     }
-
+    
     public virtual void SetupEvents()
     {
         
@@ -68,6 +70,8 @@ public class StageManager : MonoBehaviour
             Debug.Log($"Invoke Event {id}");
             ResponseToInput[id].Invoke();
             currentId++;
+
+            OnEventIdxChanged?.Invoke(currentId);
             return true;
         }
 
@@ -97,10 +101,28 @@ public class StageManager : MonoBehaviour
     protected void HideItemImage()
     {
         Debug.Log("hide Item Image");
-
         ItemImageUICtrl.self.HideItemImage();
     }
 
+    protected void DelayThenDoNext(float sec)
+    {
+        StartCoroutine(NextDelay(sec));
+    }
+    protected void Delay(float sec)
+    {
+        StartCoroutine(SimpleDelay(sec));
+    }
+
+    IEnumerator NextDelay(float sec)
+    {
+        yield return new WaitForSeconds(sec);
+        ReactOnInput(currentId);
+    }
+
+    IEnumerator SimpleDelay(float sec)
+    {
+        yield return new WaitForSeconds(sec);
+    }
     /*
     private void ShowHint()
     {
@@ -111,4 +133,5 @@ public class StageManager : MonoBehaviour
     {
         objectColliders[interactionObj_Id].enabled = true;
     }*/
+
 }
