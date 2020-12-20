@@ -1310,6 +1310,7 @@ MonoBehaviour:
   totalEventSize: 7
   LoadWithChapter: 0
   fallMan: {fileID: 374130668}
+  word: {fileID: 933583820}
   Effect_player: {fileID: 2018311381}
   BGM_player: {fileID: 627360620}
   effects:
@@ -2041,7 +2042,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933583818}
   m_LocalRotation: {x: 0.52840763, y: 0.46187615, z: -0.42936134, w: 0.568423}
-  m_LocalPosition: {x: 1.032, y: 1.258, z: -1.0207}
+  m_LocalPosition: {x: 1.1687, y: 1.164, z: -1.0207}
   m_LocalScale: {x: 0.015, y: 0.015, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4031,6 +4032,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820637909}
   m_CullTransparentMesh: 0
+--- !u!1 &1827571776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2086864470694256016, guid: b41d8e23a61a04ab388fd6f3e69b4fab,
+    type: 3}
+  m_PrefabInstance: {fileID: 950243366}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1827571779 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2086864470694256019, guid: b41d8e23a61a04ab388fd6f3e69b4fab,
+    type: 3}
+  m_PrefabInstance: {fileID: 950243366}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1827571781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827571776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adceb35e60570664cbc3d2b64b2e1026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewCamera: {fileID: 1827571779}
 --- !u!1 &1927292709
 GameObject:
   m_ObjectHideFlags: 0

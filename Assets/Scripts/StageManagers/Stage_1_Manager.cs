@@ -20,6 +20,7 @@ public class Stage_1_Manager : StageManager
         不然我先照著上面的指示做好了...那位學長好像是住844，去問問看他的室友，看會不會有什麼線索 (S12)然後播(S13)
     */
     public FallManCtrl fallMan;
+    public WordCtrl word;
 
     public AudioSource Effect_player, BGM_player;
     public AudioClip[] effects, BGMs;
@@ -37,7 +38,7 @@ public class Stage_1_Manager : StageManager
         AddEvent(3, ShowPlayerUIMessage); //(X)->未知1：...啊！有人從頂樓跳下來！！
         AddEvent(4, ShowPlayerUIMessage); //nextLine->未知2：他...他的......頭...呢？
         AddEvent(5, ShowPlayerUIMessage); //nextLine->未知3：這衣服是...學...學長？！矛求學長？！
-        AddEvent(6, HidePlayerUIMessage); //nextLine->hide message
+        AddEvent(6, ShowWord); //nextLine->ShowWord + hide message
         ReactOnInput(0);
     }
 
@@ -58,6 +59,11 @@ public class Stage_1_Manager : StageManager
         DelayThenDoNext(1f);
     }
 
+    private void ShowWord()
+    {
+        word.Appear();
+        HidePlayerUIMessage();
+    }
     private void PlaySFX()
     {
         Debug.Log(effect_idx);
