@@ -9,7 +9,7 @@ public class PlayerUI_TextCtrl : MonoBehaviour
 
     [SerializeField]
     private string[] messages;
-[SerializeField]
+
     private int message_idx = -1;
 
     private InputActions inputActions;
@@ -22,7 +22,7 @@ public class PlayerUI_TextCtrl : MonoBehaviour
     
     public void ShowText()
     {
-        Debug.Log($"{messages.Length},{text.text}");
+        text.enabled = true;
         message_idx++;
         if (message_idx < messages.Length)
         {
@@ -32,5 +32,7 @@ public class PlayerUI_TextCtrl : MonoBehaviour
     public void HideText()
     {
         text.text = "";
+        text.enabled = false;
+
     }
 }

@@ -8,7 +8,7 @@ public class PlayerInputCtrlVR : MonoBehaviour
     [SerializeField]
     int[] action_idx;
     [SerializeField]
-    int current_idx;
+    static int current_idx;
 
     private void Start()
     {
@@ -20,15 +20,31 @@ public class PlayerInputCtrlVR : MonoBehaviour
             inputActions[i] = ScriptableObject.CreateInstance<InputActions>();
             inputActions[i].id = action_idx[i];
         }
+        CheckEventIdx(0);
     }
-    private void Update()
+    private void OnEnable()
     {
-        if ((OVRInput.GetDown(OVRInput.RawButton.A))) {
-            Debug.Log("x button down");
-            if (inputActions[current_idx].ResponseOnInput())
-            {
-                current_idx++;
-            }
+        GameManager.instance.gameObject.GetComponent<StageManager>().OnEventIdxChanged += CheckEventIdx;
+    }
+
+    private void OnDisable()
+    {
+        if (GameManager.instance)
+        {
+            GameManager.instance.gameObject.GetComponent<StageManager>().OnEventIdxChanged -= CheckEventIdx;
+        }
+    }
+    public void CheckEventIdx(int idx)
+    {
+        GetComponent<BoxCollider>().enabled = (idx == action_idx[current_idx]);
+        
+    }
+
+    public void NextLine()
+    {
+        if (inputActions[current_idx].ResponseOnInput())
+        {
+            current_idx++;
         }
     }
 }

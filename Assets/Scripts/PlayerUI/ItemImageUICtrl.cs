@@ -19,7 +19,10 @@ public class ItemImageUICtrl : MonoBehaviour
     {
         self = this;
     }
-   
+    private void Start()
+    {
+        current_idx = 0;
+    }
     public void ShowItemImage()
     {
         Debug.Log("showImage");
@@ -33,5 +36,7 @@ public class ItemImageUICtrl : MonoBehaviour
     {
         itemName.enabled = false;
         itemImage.enabled = false;
+        current_idx++;
+
     }
 }
