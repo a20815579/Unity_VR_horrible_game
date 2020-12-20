@@ -17,7 +17,7 @@ public class TouchedControllerVR : MonoBehaviour
     }
 
     // trigger
-    void ResponseOnInput()
+    public void ResponseOnInput()
     {
         Debug.Log("ResponseOnInput");
         inputActions.ResponseOnInput();
