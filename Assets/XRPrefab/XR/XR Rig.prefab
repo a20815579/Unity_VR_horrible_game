@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messages: []
+  message_idx: -1
 --- !u!1 &790034062558643604
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,6 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messages: []
+  message_idx: -1
 --- !u!1 &2086864469016740898
 GameObject:
   m_ObjectHideFlags: 0
@@ -1499,6 +1501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messages: []
+  message_idx: -1
 --- !u!1 &6033176153136408055
 GameObject:
   m_ObjectHideFlags: 0
@@ -1777,6 +1780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messages: []
+  message_idx: -1
 --- !u!1 &7132915174476074638
 GameObject:
   m_ObjectHideFlags: 0

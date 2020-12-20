@@ -30,4 +30,12 @@ public class PlayerInputCtrl : MonoBehaviour
             current_idx++;
         }
     }
+
+    // add this function because Input.GetKeyDown(KeyCode.Return) dosen't work
+    void OnMouseDown()
+    {
+        Debug.Log("mouse down");
+        inputActions[current_idx].ResponseOnInput();
+        current_idx++;
+    }
 }

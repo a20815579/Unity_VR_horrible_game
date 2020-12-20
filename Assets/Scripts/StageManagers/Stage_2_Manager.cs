@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Threading.Tasks;
 public class Stage_2_Manager : StageManager
 {
     public override void SetupEvents()
@@ -18,19 +19,15 @@ public class Stage_2_Manager : StageManager
 
         AddEvent(0, ShowPlayerUIMessage);   // 0: show message
         AddEvent(1, HidePlayerUIMessage);   // 1: keyDown -> hide message
-        AddEvent(2, HidePlayerUIMessage);   // 2: keyDown -> hide message
-        AddEvent(3, ShowPlayerUIMessage);   // 3: keyDown on exam paper -> show message
-        AddEvent(4, ShowPlayerUIMessage);   // 4: keyDown -> show message
+        AddEvent(2, ShowPlayerUIMessage);   // 2: select on exam paper -> hide message
+        AddEvent(3, HidePlayerUIMessage);   // 3: keyDown -> show message
+        AddEvent(4, ShowPlayerUIMessage);   // 4: select on computer monitor -> show message
         AddEvent(5, HidePlayerUIMessage);   // 5: keyDown -> hide message
-        AddEvent(6, ShowPlayerUIMessage);   // 6: keyDown on monitor -> show message
+        AddEvent(6, ShowPlayerUIMessage);   // 6: keyDown on wine bottle -> show message
         AddEvent(7, ShowPlayerUIMessage);   // 7: keyDown -> show message
-        AddEvent(8, HidePlayerUIMessage);   // 8: keyDown -> hide message
-        AddEvent(9, ShowPlayerUIMessage);   // 9: keyDown on wine bottle -> show message
-        AddEvent(10, ShowPlayerUIMessage);   // 10: keyDown -> show message
-        AddEvent(11, ShowPlayerUIMessage);   // 11: keyDown -> show message
-        AddEvent(12, ShowPlayerUIMessage);   // 12: keyDown -> show message
-        AddEvent(13, ShowPlayerUIMessage);   // 13: keyDown -> show message
-        AddEvent(14, TransitionToNextScene);   // 14: keyDown -> change scene
+        AddEvent(8, ShowPlayerUIMessage);   // 8: keyDown -> show message
+        AddEvent(9, ShowPlayerUIMessage);   // 9: keyDown -> show message
+        AddEvent(10, TransitionToNextScene);   // 10: keyDown -> transition to next scene
 
         ReactOnInput(0);
     }

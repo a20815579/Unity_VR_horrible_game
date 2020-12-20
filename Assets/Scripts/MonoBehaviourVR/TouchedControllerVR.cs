@@ -8,10 +8,6 @@ public class TouchedControllerVR : MonoBehaviour
     private InputActions inputActions;
     [SerializeField]
     int _id;
-    [SerializeField]
-    GameObject centerEye;
-    [SerializeField]
-    GameObject rightHand;
 
     void Awake()
     {

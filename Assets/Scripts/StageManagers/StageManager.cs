@@ -39,7 +39,8 @@ public class StageManager : MonoBehaviour
     {
         if (idx >= totalEventSize)
         {
-            Debug.LogError("Failed to AddEvent! Event Index out of bound.");
+            Debug.LogError($@"Failed to AddEvent! Event Index out of bound. 
+            idx = {idx}, totalEventSize = {totalEventSize}");
             return;
         }
         Debug.Log(ResponseToInput.Count);
@@ -82,6 +83,7 @@ public class StageManager : MonoBehaviour
 
     protected void ShowPlayerUIMessage()
     {
+        Debug.Log("show");
         PlayerUI_TextCtrl.self.ShowText();
     }
     protected void HidePlayerUIMessage()
