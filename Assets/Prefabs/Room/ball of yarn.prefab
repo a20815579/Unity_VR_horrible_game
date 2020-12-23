@@ -149,7 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5710502706811655162}
   m_Layer: 0
-  m_Name: ball of yarn 1
+  m_Name: ball of yarn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,7 +164,7 @@ Transform:
   m_GameObject: {fileID: 4932593159857899840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.0259414, y: 2.459927, z: -7.1079082}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 2822722822377469771}
   - {fileID: 6328585481380161566}
@@ -393,7 +393,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a137070265888457eb61d20689b18bce, type: 2}
+  - {fileID: 2100000, guid: 2ce6d083b132b40eb9a7f1ad769abf6f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

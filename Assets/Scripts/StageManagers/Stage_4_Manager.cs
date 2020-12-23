@@ -14,44 +14,81 @@ public class Stage_4_Manager : StageManager
         
         /* add event-triggered functions to delegate list */
         //AddEvent(0, ShowPlayerUIMessage); //0:show message(default)
-        //AddEvent(1, HidePlayerUIMessage); //1:keyDown -> hide message -> wait for click window
+        //AddEvent(1, HidePlayerUIMessage); //1:button down -> hide message -> wait for click window
         //AddEvent(2, ShowPlayerUIMessage); //2:click window -> show message
         //AddEvent(3, TransitionToNextScene); //3:click monitor -> next scene
 
 
-
-        AddEvent(0, ShowPlayerUIMessage2);   // 0: show message
-        AddEvent(1, ShowPlayerUIMessage2);   // 1: keyDown -> show message
-        AddEvent(2, ShowPlayerUIMessage2);   // 2: keyDown -> show message
-        AddEvent(3, HidePlayerUIMessage2);   // 3: keyDown -> hide message
-        AddEvent(4, ShowPlayerUIMessage2);   // 4: select on medical box  -> show message
-        AddEvent(5, HidePlayerUIMessage2);   // 5: keyDown -> hide message
-        AddEvent(6, ShowPlayerUIMessage2);   // 6: select on cat -> show message
-        AddEvent(7, HideMessageAndYarnFalls);   // 7: keyDown -> hide message and yarn falls
-        AddEvent(8, ShowPlayerUIMessage2);   // 8: delay -> show message
-        AddEvent(9, ShowPlayerUIMessage2);   // 9: keyDown -> show message
-        AddEvent(10, ShowPlayerUIMessage2);   // 10: keyDown -> show message
-        AddEvent(11, HidePlayerUIMessage2);   // 11: keyDown -> hide message
-        AddEvent(12, ShowPlayerUIMessage2);   // 12: select on diary -> show message
-        AddEvent(13, ShowPlayerUIMessage2);   // 13: keyDown -> show message
-        AddEvent(14, ShowPlayerUIMessage2);   // 14: keyDown -> show message
-        AddEvent(15, ShowPlayerUIMessage2);   // 15: keyDown -> show message
-        AddEvent(16, ShowPlayerUIMessage2);   // 16: keyDown -> show message
-        AddEvent(17, ShowPlayerUIMessage2);   // 17: keyDown -> show message
-        AddEvent(18, ShowPlayerUIMessage2);   // 18: keyDown -> show message
-        AddEvent(19, ShowPlayerUIMessage2);   // 19: keyDown -> show message
-        AddEvent(20, ShowPlayerUIMessage2);   // 20: keyDown -> show message
-        AddEvent(21, HideMessageAndTurnDiaryToMultipleYarnsAndFalls);   
-                                // 21: keyDown -> hide message and diary become yarn and falls            
-        AddEvent(22, DarkenScreen);   // 22: delay -> screen become black
-        AddEvent(23, TransitionToNextScene);   // 23: delay -> transition to next scene
+        AddEvent(0, ShowPlayerUIMessage);   
+        // 0: show message: os：咦？我怎麼突然移動到學長的房間了...?!!
+        
+        AddEvent(1, ShowPlayerUIMessage);   
+        // 1: button down -> show message: os：今天一直遇到奇怪的事情，好可怕...
+        
+        AddEvent(2, ShowPlayerUIMessage);   
+        // 2: button down -> show message: os：看來現在只能繼續尋找學長自殺的線索了
+        
+        AddEvent(3, HidePlayerUIMessage);   
+        // 3: button down -> hide message
+        
+        AddEvent(4, ShowItemImage);         
+        // 4: select on medical box -> show image of medical box
+        
+        AddEvent(5, HideImageAndShowMessage);  
+        // 5: button down -> hide imgage -> show message: 室友：哦...那是最近被矛求打傷去買的。
+        
+        AddEvent(6, ShowPlayerUIMessage);   
+        // 6: button down -> show message: 室友：之前他跟我借資結作業抄，
+        
+        AddEvent(7, ShowPlayerUIMessage);   
+        // 7: button down -> show message: 室友：我怕被抓到0分不敢借他，結果就被他打了
+        
+        AddEvent(8, HidePlayerUIMessage);   
+        // 8: button down -> hide message
+        
+        AddEvent(9, ShowPlayerUIMessage);   
+        // 9: select on cat -> show message: 室友：那...那是矛求最近偷偷養的，
+        
+        AddEvent(10, ShowPlayerUIMessage);   
+        // 10: select on cat -> show message: 室友：你不準告訴其他人，不然會害我被退宿
+        
+        AddEvent(11, HideMessageAndYarnFalls);   
+        // 11: button down -> hide message and yarn falls
+        
+        AddEvent(12, ShowPlayerUIMessage);   
+        // 12: button down -> show message: 室友：你怎麼突然很驚恐地往那邊看??
+        
+        AddEvent(13, ShowPlayerUIMessage);   
+        // 13: button down -> show message: 室友：那邊根本沒東西啊...
+        
+        AddEvent(14, ShowPlayerUIMessage);   
+        // 14: button down -> show message: 室友：啊！矛求在一個月前也是突然這樣，
+    
+        AddEvent(15, ShowPlayerUIMessage);   
+        // 15: button down -> show message: 室友：從那之後，他就越來越奇怪，
+        
+        AddEvent(16, ShowPlayerUIMessage);   
+        // 16: button down -> show message: 室友：而且變得很容易暴怒，
+        
+        AddEvent(17, ShowPlayerUIMessage);   
+        // 17: button down -> show message: 室友：不然他本來不是這樣的人...
+        
+        AddEvent(18, HidePlayerUIMessage);   
+        // 18: button down -> hide message
+        
+        AddEvent(19, ShowPlayerUIMessage);   
+        // 19: select on diary -> show image of diary
+        
+        AddEvent(20, TurnDiaryToMultipleYarnsAndFallsAndTransitionToNextScene);   
+        // 20: button down -> diary become yarns and fall and transition to next scene after some delays
 
         ReactOnInput(0); //uncomment this line if first event needs to start defaultly
-        ReactOnInput(1);
-        ReactOnInput(2);
-        ReactOnInput(3);
-        ReactOnInput(4);
-        ReactOnInput(5);
+    }
+
+
+    void HideImageAndShowMessage() {
+        HideItemImage();
+        ShowPlayerUIMessage();
     }
 
     void HideMessageAndYarnFalls() {
@@ -62,14 +99,10 @@ public class Stage_4_Manager : StageManager
     void SingleYarnFalls() {
         ball.SetActive(true);
     }
-    void TurnDiaryToMultipleYarnsAndFalls() {
+    void TurnDiaryToMultipleYarnsAndFallsAndTransitionToNextScene() {
 
     }
 
-    void HideMessageAndTurnDiaryToMultipleYarnsAndFalls() {
-        HidePlayerUIMessage();
-        TurnDiaryToMultipleYarnsAndFalls();
-    }
 
     void DarkenScreen() {
 
