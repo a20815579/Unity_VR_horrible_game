@@ -1601,7 +1601,7 @@ GameObject:
   - component: {fileID: 6377633162221148535}
   - component: {fileID: 1386382437255790384}
   m_Layer: 0
-  m_Name: NextLine
+  m_Name: GripBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1719,7 +1719,7 @@ GameObject:
   - component: {fileID: 4626202222484302909}
   - component: {fileID: 190028532268862404}
   m_Layer: 0
-  m_Name: NextLineCollider
+  m_Name: GripBtnCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

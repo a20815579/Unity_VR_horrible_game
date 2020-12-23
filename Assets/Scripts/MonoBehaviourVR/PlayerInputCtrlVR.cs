@@ -43,6 +43,8 @@ public class PlayerInputCtrlVR : MonoBehaviour
             {
                 GameManager.instance.gameObject.GetComponent<StageManager>().OnEventIdxChanged -= CheckEventIdx;
             }
+            colliders[1].enabled = colliders[0].enabled = false;
+
             return;
         }
         if (idx == action_idx[current_idx + 1])

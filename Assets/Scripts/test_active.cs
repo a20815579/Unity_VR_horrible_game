@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Candle_lightup : MonoBehaviour
+public class test_active : MonoBehaviour
 {
-    public void candle_lightup_func()
+    public void test_active_func()
     {
-        transform.GetChild(1).gameObject.SetActive(true);
-        transform.GetChild(2).gameObject.SetActive(true);
+        Debug.Log("active");
     }
     // Start is called before the first frame update
     void Start()

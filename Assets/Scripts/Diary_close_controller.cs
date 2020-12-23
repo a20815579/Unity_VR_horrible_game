@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Candle_lightup : MonoBehaviour
+public class Diary_close_controller : MonoBehaviour
 {
-    public void candle_lightup_func()
+    public GameObject diary_open;
+    public void ChangeToOpen()
     {
-        transform.GetChild(1).gameObject.SetActive(true);
-        transform.GetChild(2).gameObject.SetActive(true);
+        diary_open.SetActive(true);
+        Destroy(gameObject);
     }
     // Start is called before the first frame update
     void Start()
