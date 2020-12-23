@@ -13,6 +13,7 @@ public class CameraRayDetection : MonoBehaviour
     }
     private void CheckGaze()
     {
+        //Debug.Log(lastGazedUpon);
         if (lastGazedUpon)
         {
             lastGazedUpon.SendMessage("NotGazingUpon", SendMessageOptions.DontRequireReceiver);

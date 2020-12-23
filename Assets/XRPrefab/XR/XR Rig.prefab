@@ -1647,6 +1647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   action_idx: 
+  current_idx: 0
   colliders:
   - {fileID: 6601640429766672139}
   - {fileID: 190028532268862404}
