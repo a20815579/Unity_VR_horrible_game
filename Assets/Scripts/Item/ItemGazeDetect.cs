@@ -10,12 +10,14 @@ public class ItemGazeDetect : MonoBehaviour, iGazeReceiver
 
     public void GazingUpon()
     {
-            
-        IsGazingUpon = true;
+        //Debug.Log("G");
+        _isGazingUpon = true;
     }
 
     public void NotGazingUpon()
     {
-        IsGazingUpon = false;
+        //Debug.Log("N");
+
+        _isGazingUpon = false;
     }
 }

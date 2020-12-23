@@ -5,7 +5,7 @@ using UnityEngine;
 /* sample code for monobehaviour */
 public class TouchedControllerVR : MonoBehaviour
 {
-    private InputActions inputActions;
+    protected InputActions inputActions;
     [SerializeField]
     int _id;
 
@@ -17,7 +17,7 @@ public class TouchedControllerVR : MonoBehaviour
     }
 
     // trigger
-    public void ResponseOnInput()
+    protected virtual void ResponseOnInput()
     {
         inputActions.ResponseOnInput();
     }
