@@ -20,7 +20,7 @@ public class Stage_1_Manager : StageManager
         不然我先照著上面的指示做好了...那位學長好像是住844，去問問看他的室友，看會不會有什麼線索 (S12)然後播(S13)
     */
     public FallManCtrl fallMan;
-    public WordCtrl word;
+    public Word_0_Ctrl word;
 
     public override void SetupEvents()
     {

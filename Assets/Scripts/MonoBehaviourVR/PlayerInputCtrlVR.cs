@@ -8,7 +8,7 @@ public class PlayerInputCtrlVR : MonoBehaviour
     [SerializeField]
     int[] action_idx;
     [SerializeField]
-    static int current_idx;
+    int current_idx;
     public Collider[] colliders;
 
     private void Start()
@@ -43,8 +43,12 @@ public class PlayerInputCtrlVR : MonoBehaviour
             {
                 GameManager.instance.gameObject.GetComponent<StageManager>().OnEventIdxChanged -= CheckEventIdx;
             }
+            colliders[1].enabled = colliders[0].enabled = false;
+
             return;
         }
+        //Debug.Log($"GM:{idx} | INPUT:{action_idx[current_idx + 1]}");
+
         if (idx == action_idx[current_idx + 1])
         {
             colliders[1].enabled = colliders[0].enabled = true;

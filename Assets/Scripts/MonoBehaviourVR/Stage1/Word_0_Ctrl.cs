@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-public class WordCtrl : MonoBehaviour
+public class Word_0_Ctrl : MonoBehaviour
 {
     private InputActions inputActions;
     [SerializeField]
@@ -22,13 +22,14 @@ public class WordCtrl : MonoBehaviour
 
     private void Update()
     {
-        if (gazeDetect.IsGazingUpon)
+        if (gazeDetect && gazeDetect.IsGazingUpon)
         {
             Appear();
         }
     }
     public void Appear()
     {
+        Debug.Log("Word Appear");
         wordImg.GetComponent<Animation>().Play("FadeIn");
         inputActions.ResponseOnInput();
 
