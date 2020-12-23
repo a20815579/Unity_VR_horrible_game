@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 public class Stage_4_Manager : StageManager
 {
+    [SerializeField]
     AudioSource audio;
     [SerializeField]
     GameObject ball;
@@ -31,8 +32,8 @@ public class Stage_4_Manager : StageManager
         AddEvent(3, HidePlayerUIMessage);   
         // 3: button down -> hide message
         
-        AddEvent(4, ShowItemImage);         
-        // 4: select on medical box -> show image of medical box
+        AddEvent(4, ShowImageAndPlaySoundEffect);         
+        // 4: select on medical box -> show image of medical box and play sound
         
         AddEvent(5, HideImageAndShowMessage);  
         // 5: button down -> hide imgage -> show message: 室友：哦...那是最近被矛求打傷去買的。
@@ -46,45 +47,52 @@ public class Stage_4_Manager : StageManager
         AddEvent(8, HidePlayerUIMessage);   
         // 8: button down -> hide message
         
-        AddEvent(9, ShowPlayerUIMessage);   
-        // 9: select on cat -> show message: 室友：那...那是矛求最近偷偷養的，
+        AddEvent(9, ShowImageAndPlaySoundEffect);
+        // 9: select on cat -> show image of cat and play sound 
         
-        AddEvent(10, ShowPlayerUIMessage);   
-        // 10: select on cat -> show message: 室友：你不準告訴其他人，不然會害我被退宿
+        AddEvent(10, HideImageAndShowMessage);
+        // 10: button down -> hide imgage-> show message: 室友：那...那是矛求最近偷偷養的，
         
-        AddEvent(11, HideMessageAndYarnFalls);   
-        // 11: button down -> hide message and yarn falls
+        AddEvent(11, ShowPlayerUIMessage);   
+        // 11: button down -> show message: 室友：你不準告訴其他人，不然會害我被退宿
         
-        AddEvent(12, ShowPlayerUIMessage);   
-        // 12: button down -> show message: 室友：你怎麼突然很驚恐地往那邊看??
+        AddEvent(12, HideMessageAndYarnFalls);   
+        // 12: button down -> hide message and yarn falls
         
         AddEvent(13, ShowPlayerUIMessage);   
-        // 13: button down -> show message: 室友：那邊根本沒東西啊...
+        // 13: button down -> show message: 室友：你怎麼突然很驚恐地往那邊看??
         
         AddEvent(14, ShowPlayerUIMessage);   
-        // 14: button down -> show message: 室友：啊！矛求在一個月前也是突然這樣，
-    
-        AddEvent(15, ShowPlayerUIMessage);   
-        // 15: button down -> show message: 室友：從那之後，他就越來越奇怪，
+        // 14: button down -> show message: 室友：那邊根本沒東西啊...
         
+        AddEvent(15, ShowPlayerUIMessage);   
+        // 15: button down -> show message: 室友：啊！矛求在一個月前也是突然這樣，
+    
         AddEvent(16, ShowPlayerUIMessage);   
-        // 16: button down -> show message: 室友：而且變得很容易暴怒，
+        // 16: button down -> show message: 室友：從那之後，他就越來越奇怪，
         
         AddEvent(17, ShowPlayerUIMessage);   
-        // 17: button down -> show message: 室友：不然他本來不是這樣的人...
+        // 17: button down -> show message: 室友：而且變得很容易暴怒，
         
-        AddEvent(18, HidePlayerUIMessage);   
-        // 18: button down -> hide message
+        AddEvent(18, ShowPlayerUIMessage);   
+        // 18: button down -> show message: 室友：不然他本來不是這樣的人...
         
-        AddEvent(19, ShowPlayerUIMessage);   
-        // 19: select on diary -> show image of diary
+        AddEvent(19, HidePlayerUIMessage);   
+        // 19: button down -> hide message
         
-        AddEvent(20, TurnDiaryToMultipleYarnsAndFallsAndTransitionToNextScene);   
-        // 20: button down -> diary become yarns and fall and transition to next scene after some delays
+        //AddEvent(20, ShowImageAndPlaySoundEffect);   
+        // 20: select on diary -> show image of diary and play sound
+        
+        //AddEvent(21, TurnDiaryToMultipleYarnsAndFallsAndTransitionToNextScene);   
+        // 20: button down -> hide image and diary become yarns and fall and transition to next scene after some delays
 
         ReactOnInput(0); //uncomment this line if first event needs to start defaultly
     }
 
+    void ShowImageAndPlaySoundEffect() {
+        audio.Play();
+        ShowItemImage();
+    }
 
     void HideImageAndShowMessage() {
         HideItemImage();
