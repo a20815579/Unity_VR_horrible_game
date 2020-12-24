@@ -29,7 +29,8 @@ public class Stage_3_Manager : StageManager
 
     */
     public MonitorCtrl monitor;
-    public Word_1_Ctrl word;
+    public Word_1_3_Ctrl word_1;
+    public Word_1_3_Ctrl word_3;
     public GameObject Ball;
 
     public override void SetupEvents()
@@ -41,12 +42,16 @@ public class Stage_3_Manager : StageManager
         AddEvent(1, ShowPlayerUIMessage); // (x)->還是趕快來寫資結作業吧
         AddEvent(2, ClickMonitor); // click monitor -> PlaySFX(S02)+出現code
         AddEvent(3, TypingKeyboard); // (x)->PlaySFX(S14) + ShowMessage
-        AddEvent(4, ShowBloodWord); // delayNext->word appear+PlaySFX(S03)
+        AddEvent(4, ShowBloodWord_1); // (x)->word appear+PlaySFX(S03)
         AddEvent(5, HidePlayerUIMessage); // GripBtn->HideMessage
         AddEvent(6, TryClickMonitor); // click monitor->HideMessage+PlaySFX(S15)
         AddEvent(7, EnableBall); // GripBtn->HideMessage + ball set active
         AddEvent(8, GazeAtBall); //gaze at ball->show message + SFX(S04)+BGM(M0)
-        AddEvent(9, DropBall); //pickUpball->show message + SFX(S08)
+        AddEvent(9, DropBall); //pickUpball->dropBall+show message:啊！！！是人頭！！為什麼房間裡會突然有一顆人頭！ + SFX(S08)
+        AddEvent(10, ShowPlayerUIMessage); //GripBtn->showMessage :等等...昨天跳樓的矛求學長，他的屍體...沒有頭...
+        AddEvent(11, HideMessageAndDoNext); //GripBtn->hide message
+        AddEvent(12, EnableBallDisAppear); //(x)->enable ball disappear ctrl
+        AddEvent(13, ShowBloodWord_3); //GazeAtBall->show blood word
 
 
 
@@ -75,10 +80,10 @@ public class Stage_3_Manager : StageManager
         DelayThenDoNext(6f);
     }
     
-    private void ShowBloodWord()
+    private void ShowBloodWord_1()
     {
         monitor.ShowCode(false);
-        word.Appear();
+        word_1.Appear();
         Delay(0.5f, PlaySFX); //S03
         Delay(2.5f, ShowPlayerUIMessage);// 主角：這到底怎麼回事！讓我做作業啊！
     }
@@ -107,5 +112,22 @@ public class Stage_3_Manager : StageManager
     {
         ShowPlayerUIMessage();
         PlaySFX();
+    }
+
+    void HideMessageAndDoNext()
+    {
+        HidePlayerUIMessage();
+        DelayThenDoNext(1f);
+    }
+    void EnableBallDisAppear()
+    {
+        Ball.GetComponent<BallDisappearCtrl>().enabled = true;
+    }
+    
+    void ShowBloodWord_3()
+    {
+        word_3.Appear();
+        PlaySFX();
+        Delay(2f, TransitionToNextScene);
     }
 }
