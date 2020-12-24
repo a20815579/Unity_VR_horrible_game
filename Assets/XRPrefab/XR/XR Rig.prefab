@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 445959519998159811}
   - component: {fileID: 445959519998159810}
   - component: {fileID: 445959519998159809}
-  - component: {fileID: 1929324048229529534}
   m_Layer: 0
   m_Name: XR Rig
   m_TagString: Untagged
@@ -30,6 +29,7 @@ Transform:
   m_LocalPosition: {x: 0.15502037, y: 1.2294005, z: -0.5926687}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 3651713137202978192}
   - {fileID: 445959521259721358}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -66,18 +66,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ActionAssets:
   - {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
---- !u!114 &1929324048229529534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445959519998159808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 107dedf0ad36846039fbb625106844b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &445959520058583596
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,7 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6803edce0201f574f923fd9d10e5b30a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 7970121925024580200}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -693,7 +681,7 @@ Transform:
   - {fileID: 445959520261456104}
   - {fileID: 445959521739109279}
   m_Father: {fileID: 445959519998159811}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &445959521739109278
 GameObject:
@@ -862,7 +850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6803edce0201f574f923fd9d10e5b30a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 7970121925024580200}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1446,7 +1434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 031c333e774a644369816b6407ac1b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  action_idx: 0100000003000000040000000500000007000000080000000a0000000b0000000c0000000d000000
+  action_idx: 
   current_idx: 0
   colliders:
   - {fileID: 4709614028405573815}
@@ -1648,7 +1636,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &7445053647607669826
 MonoBehaviour:
@@ -1806,6 +1794,49 @@ MonoBehaviour:
   current_idx: 0
   itemImage: {fileID: 4413232324868171410}
   itemName: {fileID: 7393428248581263732}
+--- !u!1 &4922666083736681502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3651713137202978192}
+  - component: {fileID: 7970121925024580200}
+  m_Layer: 0
+  m_Name: XR Interaction Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3651713137202978192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4922666083736681502}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.17444998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 445959519998159811}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7970121925024580200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4922666083736681502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e4e6cca11330d4088d729ab4fc9d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4951927893629351601
 GameObject:
   m_ObjectHideFlags: 0

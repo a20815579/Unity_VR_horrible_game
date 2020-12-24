@@ -11,12 +11,13 @@ public class PickUpBallCtrl : TouchedControllerVR
     public void OnGrab()
     {
         ballObj.localEulerAngles = OnGrabRotation;
-        Invoke("TurnAround", 1.5f);
+        Invoke("TurnAround", 5f);
     }
 
     void TurnAround()
     {
         ballObj.GetComponent<Animator>().enabled = true;
+        Debug.Log("here");
         base.ResponseOnInput();
     }
     

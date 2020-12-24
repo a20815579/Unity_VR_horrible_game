@@ -127,6 +127,7 @@ public class Stage_3_Manager : StageManager
     void ShowBloodWord_3()
     {
         word_3.Appear();
+        word_3.transform.position = Ball.transform.position;
         PlaySFX();
         Delay(2f, TransitionToNextScene);
     }
