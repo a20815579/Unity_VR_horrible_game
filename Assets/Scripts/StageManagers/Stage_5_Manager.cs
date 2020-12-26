@@ -26,8 +26,8 @@ public class Stage_5_Manager : StageManager
         AddEvent(11, ShowPlayerUIMessage); //click -> 天哪！這整件事也太毛骨悚然！！學長們怎麼會遇上這種事......
         AddEvent(12, HidePlayerUIMessage); // click -> hide UI
         AddEvent(13, DiaryBloodMsg); //trigger diary -> show blood msg
-        AddEvent(14, DiaryBloodMsg2); //show blood msg2
-        AddEvent(15, ShowPlayerUIMessage); //click -> 什...什麼意思！！！
+        AddEvent(14, DiaryBloodMsg2); //delay 1 s -> show blood msg2
+        AddEvent(15, ShowPlayerUIMessage); //delay 1 s -> 什...什麼意思！！！
         AddEvent(16, ShowPlayerUIMessage); //click -> 啊.......
         AddEvent(17, ShowPlayerUIMessage); //click -> 矛求學長住844房，這位一年前自殺的學長住744房...
         AddEvent(18, ShowPlayerUIMessage); //click -> 那這樣...下一個不就是住在944的我嗎！！
