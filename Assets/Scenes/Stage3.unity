@@ -545,7 +545,7 @@ PrefabInstance:
     - target: {fileID: 2686177643900391968, guid: 91444f3467fb942c89d46f52680a1f4f,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4775982114605084363, guid: 91444f3467fb942c89d46f52680a1f4f,
         type: 3}
@@ -1475,7 +1475,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e364d326838df58418fc61f3c64f329b, type: 3}
   effect_idx: 0
   bgm_idx: 0
-  LoadWithChapter: 1
+  LoadWithChapter: 0
   monitor: {fileID: 1365644341}
   word_1: {fileID: 933583820}
   word_3: {fileID: 84063618}
