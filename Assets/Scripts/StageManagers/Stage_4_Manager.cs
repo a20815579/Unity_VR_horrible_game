@@ -1,13 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 public class Stage_4_Manager : StageManager
 {
     [SerializeField]
-    AudioSource audio;
+    AudioSource[] audios;
     [SerializeField]
     GameObject ball;
+    [SerializeField]
+    GameObject diaryCloseed;
+    [SerializeField]
+    GameObject diaryOpend;
+    [SerializeField]
+    Diary_close_controller diary_Close_Controller;
+    [SerializeField]
+    Diary_open_controller diary_Open_Controller;
+    [SerializeField]
+    DiaryDisappearCtrl diary_disappear;
 
     public override void SetupEvents()
     {
@@ -19,10 +28,10 @@ public class Stage_4_Manager : StageManager
         //AddEvent(2, ShowPlayerUIMessage); //2:click window -> show message
         //AddEvent(3, TransitionToNextScene); //3:click monitor -> next scene
 
-        // total event():
-        // touch event(): 1 2 3 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 
+        // total event: 24
+        // touch event(21): 1 2 3 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 21 22 23
         // text event(14)
-        // show image(3): 4 9 20
+        // show image(2): 4 9
 
         AddEvent(0, ShowPlayerUIMessage);   
         // 0: show message: os：咦？我怎麼突然移動到學長的房間了...?!!
@@ -84,17 +93,42 @@ public class Stage_4_Manager : StageManager
         AddEvent(19, HidePlayerUIMessage);   
         // 19: button down -> hide message
         
-        //AddEvent(20, ShowImageAndPlaySoundEffect);   
-        // 20: select on diary -> show image of diary and play sound
-        
-        //AddEvent(21, TurnDiaryToMultipleYarnsAndFallsAndTransitionToNextScene);   
-        // 20: button down -> hide image and diary become yarns and fall and transition to next scene after some delays
+        AddEvent(20, ChangeDiaryToOpenAndPlaySoundEffect);   
+        // 20: select on diary -> diary open
 
-        ReactOnInput(0); //uncomment this line if first event needs to start defaultly
+        // grab diary
+
+        AddEvent(21, diary_Open_Controller.NextPage);   
+        // 21: trigger button down -> diary change page
+
+        AddEvent(22, diary_Open_Controller.NextPageAgain);   
+        // 22: trigger button down -> diary change page again
+
+        AddEvent(23, DiaryFadeoutAndYarnsFall);   
+        // 23: trigger button down -> diary become yarns and fall, then transition to next scene
+
+        //ReactOnInput(0); //uncomment this line if first event needs to start defaultly
+        StartCoroutine(RunEntireFlow(24));
+    }
+
+    IEnumerator RunEntireFlow(int n) {
+        for (int i = 0; i < 19; i++) {
+            ReactOnInput(i);
+        }
+
+        for (int i = 19; i < n; i++) {
+            ReactOnInput(i);
+            yield return new WaitForSeconds(2.0f);
+        }
+    }
+
+    void ChangeDiaryToOpenAndPlaySoundEffect() {
+        audios[0].Play();
+        diary_Close_Controller.ChangeToOpen();
     }
 
     void ShowImageAndPlaySoundEffect() {
-        audio.Play();
+        audios[0].Play();
         ShowItemImage();
     }
 
@@ -111,18 +145,38 @@ public class Stage_4_Manager : StageManager
     void SingleYarnFalls() {
         ball.SetActive(true);
     }
-    void TurnDiaryToMultipleYarnsAndFallsAndTransitionToNextScene() {
+    
+    IEnumerator MultipleYarnsFadeInAndFall(int n) {
+        float soundDecSpeed = 0.03f;
+        for (int i = 0; i < n; i++) {
+            audios[1].volume -= soundDecSpeed;
+            Debug.Log(audios[1].volume);
 
+            Vector3 diaryPos = diaryOpend.transform.position;
+            Vector3 pos = new Vector3(
+                diaryPos.x + Random.Range(-0.3f, 0.3f),
+                diaryPos.y + Random.Range(-0.3f, 0.3f),
+                diaryPos.z + Random.Range(-0.3f, 0.3f)
+            );
+            Instantiate(ball, pos, diaryOpend.transform.rotation);
+
+            yield return new WaitForSeconds(0.2f);
+        }
+        
+        audios[1].Stop();
+
+        TransitionToNextScene();
     }
 
+    void DiaryFadeoutAndYarnsFall() {
+        // 20 balls
+        int n = 20;
+        audios[1].Play();
+        StartCoroutine(MultipleYarnsFadeInAndFall(n));
 
-    void DarkenScreen() {
+        diary_disappear.FadeOut();
+    }
 
-    }
-    void ShowMessageAndPlaySoundEffect() {
-        audio.Play();
-        ShowPlayerUIMessage();
-    }
     protected void ShowPlayerUIMessage2()
     {
         Debug.Log("show");

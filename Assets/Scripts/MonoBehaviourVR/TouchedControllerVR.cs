@@ -8,6 +8,8 @@ public class TouchedControllerVR : MonoBehaviour
     protected InputActions inputActions;
     [SerializeField]
     int _id;
+    [SerializeField]
+    int current_idx;
 
     void Awake()
     {
