@@ -19,6 +19,10 @@ public class Stage_4_Manager : StageManager
         //AddEvent(2, ShowPlayerUIMessage); //2:click window -> show message
         //AddEvent(3, TransitionToNextScene); //3:click monitor -> next scene
 
+        // total event():
+        // touch event(): 1 2 3 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 
+        // text event(14)
+        // show image(3): 4 9 20
 
         AddEvent(0, ShowPlayerUIMessage);   
         // 0: show message: os：咦？我怎麼突然移動到學長的房間了...?!!

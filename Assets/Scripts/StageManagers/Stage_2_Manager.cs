@@ -17,6 +17,10 @@ public class Stage_2_Manager : StageManager
         //AddEvent(2, ShowPlayerUIMessage); //2:click window -> show message
         //AddEvent(3, TransitionToNextScene); //3:click monitor -> next scene
 
+        // total event: 18
+        // touch event(10): 1 3 4 5 7 8 9 10 11 13 14 15 16 17
+        // text event(11)
+        // show image(3): 2 6 12
 
         AddEvent(0, ShowPlayerUIMessage);   
         // 0: show message: 室友：怎麼會發生這種事...
@@ -40,25 +44,37 @@ public class Stage_2_Manager : StageManager
         // 6: select on computer monitor -> show item image and play sound
         
         AddEvent(7, HideImageAndShowMessage);   
-        // 7: button down -> hide image -> show message: 室友：矛求之前通宵趕資結作業，結果卻因為換行符號不一樣就沒分數，助教一開始也沒講
+        // 7: button down -> hide image -> show message: 室友：矛求之前通宵趕資結作業，
+
+        AddEvent(8, ShowPlayerUIMessage);  
+        // 8: button down -> show message: 室友：結果卻因為換行符號不一樣就沒分數，
+
+        AddEvent(9, ShowPlayerUIMessage);  
+        // 9: button down -> show message: 室友：助教一開始也沒講清楚環境是linux還是windows，
+
+        AddEvent(10, ShowPlayerUIMessage);  
+        // 10: button down -> show message: 室友：讓矛求很生氣
+
+        AddEvent(11, HidePlayerUIMessage);  
+        // 11: button down -> hide message
         
-        AddEvent(8, HidePlayerUIMessage);  
-        // 8: button down -> hide message
+        AddEvent(12, ShowImageAndPlaySoundEffect);         
+        // 12: select on wine bottle -> show item image and play sound
         
-        AddEvent(9, ShowImageAndPlaySoundEffect);         
-        // 9: select on wine bottle -> show item image and play sound
+        AddEvent(13, HideImageAndShowMessage);   
+        // 13: button down -> hide image -> show message: 室友：矛求以前都理性飲酒的，
+
+        AddEvent(14, ShowPlayerUIMessage);   
+        // 14: button down -> hide image -> show message: 室友：但他最近壓力很大，常常一喝就是好幾瓶，還會發酒瘋。
         
-        AddEvent(10, HideImageAndShowMessage);   
-        // 10: button down -> hide image -> show message
+        AddEvent(15, ShowPlayerUIMessage);   
+        // 15: button down -> show message: OS：嗯...。看來矛求學長是因為課業不順才跳樓的... 
         
-        AddEvent(11, ShowPlayerUIMessage);   
-        // 11: button down -> show message
+        AddEvent(16, ShowPlayerUIMessage);   
+        // 16: button down -> show message: OS：我還是回去念書，免得跟他一樣 
         
-        AddEvent(12, ShowPlayerUIMessage);   
-        // 12: button down -> show message
-        
-        AddEvent(13, TransitionToNextScene);   
-        // 13: button down -> transition to next scene
+        AddEvent(17, TransitionToNextScene);   
+        // 17: button down -> transition to next scene
 
         ReactOnInput(0); //uncomment this line if first event needs to start defaultly
     }
