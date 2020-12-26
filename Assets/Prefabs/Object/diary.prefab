@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6130411054526135205}
   - component: {fileID: 3768892147305152661}
   - component: {fileID: 4897903063262002230}
+  - component: {fileID: 7125974664083050359}
   m_Layer: 0
   m_Name: cover
   m_TagString: Untagged
@@ -79,6 +80,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &7125974664083050359
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317578846142042996}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.018923553, y: 0.022883985, z: 0.004057128}
+  m_Center: {x: -0.000007811004, y: 4.6566145e-10, z: -0.0018556068}
 --- !u!1 &676725599431320115
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,8 +102,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 157598449745016969}
+  - component: {fileID: 1306129043612253070}
+  - component: {fileID: 3802517025917427768}
+  - component: {fileID: 3960205903377448786}
   m_Layer: 0
-  m_Name: Pen and Notepad
+  m_Name: diary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,7 +121,7 @@ Transform:
   m_GameObject: {fileID: 676725599431320115}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 10, y: 3.38, z: 9.05}
   m_Children:
   - {fileID: 6130411054526135205}
   - {fileID: 6087311220569083499}
@@ -113,6 +130,78 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1306129043612253070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676725599431320115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 7125974664083050359}
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_CustomReticle: {fileID: 0}
+--- !u!114 &3802517025917427768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676725599431320115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aac89beb498248fb89d4c83f6014039, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 6
+--- !u!114 &3960205903377448786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676725599431320115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6cde24d95e1aca4d925b9cc35d0c271, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diary_open: {fileID: 0}
 --- !u!1 &3513187192699671502
 GameObject:
   m_ObjectHideFlags: 0

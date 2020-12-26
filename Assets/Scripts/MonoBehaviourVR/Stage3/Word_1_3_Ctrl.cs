@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-public class Word_1_Ctrl : MonoBehaviour
+public class Word_1_3_Ctrl : MonoBehaviour
 {
     
     public GameObject wordImg;

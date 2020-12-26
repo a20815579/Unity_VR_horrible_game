@@ -8,18 +8,23 @@ public class Diary_open_controller : MonoBehaviour
     {
         transform.GetChild(1).gameObject.SetActive(false);
         transform.GetChild(2).gameObject.SetActive(true);
-        transform.GetChild(5).gameObject.SetActive(false);
-        transform.GetChild(6).gameObject.SetActive(true);
+        transform.GetChild(6).gameObject.SetActive(false);
+        transform.GetChild(7).gameObject.SetActive(true);
+    }
+    public void NextPageAgain()
+    {
+        transform.GetChild(2).gameObject.SetActive(false);
+        transform.GetChild(3).gameObject.SetActive(true);
+        transform.GetChild(7).gameObject.SetActive(false);
     }
     public void BloodMsg()
     {
-        transform.GetChild(2).gameObject.GetComponent<Animation>().enabled = true;
-        transform.GetChild(6).gameObject.GetComponent<Animation>().enabled = true;
-        transform.GetChild(3).gameObject.SetActive(true);        
+        transform.GetChild(3).gameObject.GetComponent<Animation>().enabled = true;
+        transform.GetChild(4).gameObject.SetActive(true);        
     }
     public void BloodMsg2()
     {
-        transform.GetChild(7).gameObject.SetActive(true);
+        transform.GetChild(8).gameObject.SetActive(true);
     }
     // Start is called before the first frame update
     void Start()

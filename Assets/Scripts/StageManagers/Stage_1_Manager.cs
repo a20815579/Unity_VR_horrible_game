@@ -72,9 +72,9 @@ public class Stage_1_Manager : StageManager
 
     void NextScene()
     {
+        Delay(1f, PlaySFX);
+        Delay(1f, PlaySFX);
         TransitionToNextScene();
-        Delay(1f, PlaySFX);
-        Delay(1f, PlaySFX);
     }
     
 }
