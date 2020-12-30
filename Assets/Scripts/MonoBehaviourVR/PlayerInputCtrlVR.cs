@@ -24,7 +24,7 @@ public class PlayerInputCtrlVR : MonoBehaviour
     private void Start()
     {
         
-        //CheckEventIdx(0);
+        CheckEventIdx(0);
     }
     private void OnEnable()
     {

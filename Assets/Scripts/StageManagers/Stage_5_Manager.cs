@@ -20,7 +20,7 @@ public class Stage_5_Manager : StageManager
         AddEvent(6, OpenDiary); //click diary -> show 744同學的日記 & open diary
         AddEvent(7, HideItemImage); //click -> hide UI
         AddEvent(8, DiaryNextPage); //trigger diary -> show 2019/12/19&21
-        AddEvent(9, DiaryNextPageAgain); //trigger diary -> show 2019/12/23
+        AddEvent(9, DiaryNextPageAgain); //delay 5s -> show 2019/12/23
         AddEvent(10, ShowPlayerUIMessage); //click -> 竟然跟矛求學長的日記內容一模一樣..！！該不會他後來跟矛求學長一樣自殺...
         AddEvent(11, ShowPlayerUIMessage); //click -> 然後...這就是傳說中鬧鬼後被學校封閉的房間...
         AddEvent(12, ShowPlayerUIMessage); //click -> 天哪！這整件事也太毛骨悚然！！學長們怎麼會遇上這種事......
@@ -53,13 +53,14 @@ public class Stage_5_Manager : StageManager
     }
     void OpenDiary()
     {
-        PlaySFX();
+        PlaySFX();        
+        diary_close_controller.ChangeToOpen();
         ShowItemImage();
-        diary_close_controller.ChangeToOpen();        
     }
     void DiaryNextPage()
     {
         diary_open_controller.NextPage();
+        DelayThenDoNext(2f);
     }
     void DiaryNextPageAgain()
     {
@@ -69,12 +70,12 @@ public class Stage_5_Manager : StageManager
     {
         PlaySFX();
         diary_open_controller.BloodMsg();
-        DelayThenDoNext(1f);
+        DelayThenDoNext(1.5f);
     }
     void DiaryBloodMsg2()
     {
         diary_open_controller.BloodMsg2();
-        DelayThenDoNext(1f);
+        DelayThenDoNext(1.5f);
     }
     void LineMsg()
     {
