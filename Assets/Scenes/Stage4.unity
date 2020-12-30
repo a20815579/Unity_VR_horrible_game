@@ -246,22 +246,22 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 473097572}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 157598449745016969, guid: 22152f2703802c244887a9755e6f4eda,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.024
+      value: 1.0594224
       objectReference: {fileID: 0}
     - target: {fileID: 157598449745016969, guid: 22152f2703802c244887a9755e6f4eda,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.109
+      value: 1.132582
       objectReference: {fileID: 0}
     - target: {fileID: 157598449745016969, guid: 22152f2703802c244887a9755e6f4eda,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.078
+      value: -1.0754485
       objectReference: {fileID: 0}
     - target: {fileID: 157598449745016969, guid: 22152f2703802c244887a9755e6f4eda,
         type: 3}
@@ -286,7 +286,7 @@ PrefabInstance:
     - target: {fileID: 157598449745016969, guid: 22152f2703802c244887a9755e6f4eda,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 157598449745016969, guid: 22152f2703802c244887a9755e6f4eda,
         type: 3}
@@ -303,10 +303,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 157598449745016969, guid: 22152f2703802c244887a9755e6f4eda,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 157598449745016969, guid: 22152f2703802c244887a9755e6f4eda,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 9.050001
+      objectReference: {fileID: 0}
     - target: {fileID: 676725599431320115, guid: 22152f2703802c244887a9755e6f4eda,
         type: 3}
       propertyPath: m_Name
-      value: diary
+      value: diary_closed
       objectReference: {fileID: 0}
     - target: {fileID: 676725599431320115, guid: 22152f2703802c244887a9755e6f4eda,
         type: 3}
@@ -357,7 +367,7 @@ PrefabInstance:
         type: 3}
       propertyPath: diary_open
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1545629217}
     - target: {fileID: 4897903063262002230, guid: 22152f2703802c244887a9755e6f4eda,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -365,12 +375,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 16dc89549237d6740b54a0c0b52c1a35, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22152f2703802c244887a9755e6f4eda, type: 3}
---- !u!4 &192773173 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 157598449745016969, guid: 22152f2703802c244887a9755e6f4eda,
-    type: 3}
-  m_PrefabInstance: {fileID: 192773172}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &222644671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -760,9 +764,9 @@ MonoBehaviour:
   - {fileID: 1982982685}
   - {fileID: 1077096314}
   ball: {fileID: 1427186135}
-  diaryCloseed: {fileID: 473097571}
+  diaryCloseed: {fileID: 0}
   diaryOpend: {fileID: 1545629217}
-  diary_Close_Controller: {fileID: 473097573}
+  diary_Close_Controller: {fileID: 1143437829}
   diary_Open_Controller: {fileID: 1545629219}
   diary_disappear: {fileID: 1545629220}
 --- !u!1001 &335042259
@@ -1178,51 +1182,6 @@ Transform:
   m_Father: {fileID: 2041070297}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &473097571
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 473097572}
-  - component: {fileID: 473097573}
-  m_Layer: 0
-  m_Name: diary_close
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &473097572
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 473097571}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0834224, y: 1.2415819, z: -1.1534485}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 192773173}
-  m_Father: {fileID: 0}
-  m_RootOrder: 24
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &473097573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 473097571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6cde24d95e1aca4d925b9cc35d0c271, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  diary_open: {fileID: 1545629217}
 --- !u!1 &489491583
 GameObject:
   m_ObjectHideFlags: 0
@@ -2897,7 +2856,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 20d270e3d2757481d819c53dae9be980, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8e7e336e1d933154c854fc0e31d8b165, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3184,6 +3143,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.2841582, y: 2.3141763, z: 0.3685674}
   m_Center: {x: 6.5774884, y: 1.0403879, z: -2.1102588}
+--- !u!114 &1143437829 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3960205903377448786, guid: 22152f2703802c244887a9755e6f4eda,
+    type: 3}
+  m_PrefabInstance: {fileID: 192773172}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6cde24d95e1aca4d925b9cc35d0c271, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1143437830 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3802517025917427768, guid: 22152f2703802c244887a9755e6f4eda,
@@ -3775,7 +3746,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 490f41ad2946e436c8ddade731e2c736, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 62746f14580e5674abc40d596002b495, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
