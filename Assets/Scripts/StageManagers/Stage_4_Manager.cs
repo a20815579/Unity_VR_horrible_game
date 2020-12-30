@@ -107,8 +107,8 @@ public class Stage_4_Manager : StageManager
         AddEvent(23, DiaryFadeoutAndYarnsFall);   
         // 23: trigger button down -> diary become yarns and fall, then transition to next scene
 
-        ReactOnInput(0); //uncomment this line if first event needs to start defaultly
-        //StartCoroutine(RunEntireFlow(24));
+        //ReactOnInput(0); //uncomment this line if first event needs to start defaultly
+        StartCoroutine(RunEntireFlow(24));
     }
 
     IEnumerator RunEntireFlow(int n) {

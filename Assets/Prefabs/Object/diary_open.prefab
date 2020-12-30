@@ -76,7 +76,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7.5, y: 8.5}
+  m_Size: {x: 7.5, y: 8.37}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -707,6 +707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _id: 5
+  current_idx: 0
 --- !u!1 &7623300917356389441
 GameObject:
   m_ObjectHideFlags: 0
