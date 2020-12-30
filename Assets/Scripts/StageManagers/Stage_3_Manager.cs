@@ -35,7 +35,7 @@ public class Stage_3_Manager : StageManager
 
     public override void SetupEvents()
     {
-        Debug.Log("Stage 1 event setup");
+        //Debug.Log("Stage 1 event setup");
 
         /* add event-triggered functions to delegate list */
         AddEvent(0, PlayBGM_M6); // (x)->PlayBGM

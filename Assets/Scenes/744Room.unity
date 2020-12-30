@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4512723, g: 0.5009535, b: 0.5733472, a: 1}
+  m_IndirectSpecularColor: {r: 0.4512719, g: 0.5009525, b: 0.57334673, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -581,6 +581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _id: 3
+  current_idx: 0
 --- !u!1 &180923560 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1718336162559014624, guid: 883f632e31ea4074eb03f5ef2012ce0e,
@@ -705,6 +706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _id: 5
+  current_idx: 0
 --- !u!64 &194286269 stripped
 MeshCollider:
   m_CorrespondingSourceObject: {fileID: 8445483834280119153, guid: 721e0fe627ad9de4e9d0b2c246bcc111,
@@ -3176,7 +3178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 267681148}
   m_Colliders:
   - {fileID: 571886370}
   - {fileID: 589388759}
@@ -6700,6 +6702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _id: 4
+  current_idx: 0
 --- !u!1 &2105544064
 GameObject:
   m_ObjectHideFlags: 0

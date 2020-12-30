@@ -270,7 +270,7 @@ MonoBehaviour:
   - {fileID: 0}
   effect_idx: 0
   bgm_idx: 0
-  LoadWithChapter: 1
+  LoadWithChapter: 0
   friends:
   - {fileID: 939537499}
   - {fileID: 919132148906175436}
@@ -17461,7 +17461,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 939537497}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 0eade425c12887347bafc37e75cc95ab, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 0653eb855196d9043939721be3cac49c, type: 3}
   m_Controller: {fileID: 9100000, guid: ca073e9c776af0442923ca3c90673379, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -19084,7 +19084,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 656cdac6f0739f84dbede8186a62c9af, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 07d97cf08b26d26498ec30d5bbc77375, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.57
   m_Pitch: 1
@@ -35496,7 +35496,7 @@ Animator:
   m_GameObject: {fileID: 1768108133}
   m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 682b7031ac2daad4589ff0b9ad95a4d5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 789de4a3b52666f428f985b7878537f3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -37687,7 +37687,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1875478965}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 0eade425c12887347bafc37e75cc95ab, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 0653eb855196d9043939721be3cac49c, type: 3}
   m_Controller: {fileID: 9100000, guid: 1f03b2beb06ee2948aa0190fec7a1377, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -50587,7 +50587,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7364710038088134584}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: c3d0986bb1f1f5a4c99c4bca5fb0f533, type: 3}
+  m_Avatar: {fileID: 9000000, guid: feea81036a62b024ebc6dfaab7d30396, type: 3}
   m_Controller: {fileID: 9100000, guid: 8e744ee1f01f71947aaa97745161c12e, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
