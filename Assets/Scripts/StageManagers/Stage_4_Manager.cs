@@ -34,13 +34,13 @@ public class Stage_4_Manager : StageManager
         // show image(2): 4 9
 
         AddEvent(0, ShowPlayerUIMessage);   
-        // 0: show message: os：咦？我怎麼突然移動到學長的房間了...?!!
+        // 0: show message: 咦？我怎麼突然移動到學長的房間了...?!!
         
         AddEvent(1, ShowPlayerUIMessage);   
-        // 1: button down -> show message: os：今天一直遇到奇怪的事情，好可怕...
+        // 1: button down -> show message: 今天一直遇到奇怪的事情，好可怕...
         
         AddEvent(2, ShowPlayerUIMessage);   
-        // 2: button down -> show message: os：看來現在只能繼續尋找學長自殺的線索了
+        // 2: button down -> show message: 看來現在只能繼續尋找學長自殺的線索了
         
         AddEvent(3, HidePlayerUIMessage);   
         // 3: button down -> hide message
@@ -107,8 +107,8 @@ public class Stage_4_Manager : StageManager
         AddEvent(23, DiaryFadeoutAndYarnsFall);   
         // 23: trigger button down -> diary become yarns and fall, then transition to next scene
 
-        //ReactOnInput(0); //uncomment this line if first event needs to start defaultly
-        StartCoroutine(RunEntireFlow(24));
+        ReactOnInput(0); //uncomment this line if first event needs to start defaultly
+        //StartCoroutine(RunEntireFlow(24));
     }
 
     IEnumerator RunEntireFlow(int n) {

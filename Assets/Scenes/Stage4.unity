@@ -2133,17 +2133,17 @@ PrefabInstance:
     - target: {fileID: 743962194829126011, guid: 91444f3467fb942c89d46f52680a1f4f,
         type: 3}
       propertyPath: messages.Array.data[0]
-      value: "os\uFF1A\u54A6\uFF1F\u6211\u600E\u9EBC\u7A81\u7136\u79FB\u52D5\u5230\u5B78\u9577\u7684\u623F\u9593\u4E86...?!!"
+      value: "\u54A6\uFF1F\u6211\u600E\u9EBC\u7A81\u7136\u79FB\u52D5\u5230\u5B78\u9577\u7684\u623F\u9593\u4E86...?!!"
       objectReference: {fileID: 0}
     - target: {fileID: 743962194829126011, guid: 91444f3467fb942c89d46f52680a1f4f,
         type: 3}
       propertyPath: messages.Array.data[1]
-      value: "os\uFF1A\u4ECA\u5929\u4E00\u76F4\u9047\u5230\u5947\u602A\u7684\u4E8B\u60C5\uFF0C\u597D\u53EF\u6015..."
+      value: "\u4ECA\u5929\u4E00\u76F4\u9047\u5230\u5947\u602A\u7684\u4E8B\u60C5\uFF0C\u597D\u53EF\u6015..."
       objectReference: {fileID: 0}
     - target: {fileID: 743962194829126011, guid: 91444f3467fb942c89d46f52680a1f4f,
         type: 3}
       propertyPath: messages.Array.data[2]
-      value: "os\uFF1A\u770B\u4F86\u73FE\u5728\u53EA\u80FD\u7E7C\u7E8C\u5C0B\u627E\u5B78\u9577\u81EA\u6BBA\u7684\u7DDA\u7D22\u4E86"
+      value: "\u770B\u4F86\u73FE\u5728\u53EA\u80FD\u7E7C\u7E8C\u5C0B\u627E\u5B78\u9577\u81EA\u6BBA\u7684\u7DDA\u7D22\u4E86"
       objectReference: {fileID: 0}
     - target: {fileID: 743962194829126011, guid: 91444f3467fb942c89d46f52680a1f4f,
         type: 3}
@@ -3867,7 +3867,7 @@ PrefabInstance:
     - target: {fileID: 160573384692444944, guid: c8b7446da54cd7f46a1d2739a6edd6f8,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 680509771430360490, guid: c8b7446da54cd7f46a1d2739a6edd6f8,
         type: 3}
