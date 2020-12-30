@@ -105,6 +105,7 @@ public class StageManager : MonoBehaviour
 
     protected void ShowItemImage()
     {
+        Debug.Log("showItem");
         ItemImageUICtrl.self.ShowItemImage();
     }
 
