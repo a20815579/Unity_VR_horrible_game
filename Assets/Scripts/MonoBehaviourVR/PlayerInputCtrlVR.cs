@@ -10,8 +10,7 @@ public class PlayerInputCtrlVR : MonoBehaviour
     [SerializeField]
     int current_idx;
     public Collider[] colliders;
-
-    private void Start()
+    private void Awake()
     {
         current_idx = -1;
         // create instance of ScriptableObject
@@ -21,7 +20,11 @@ public class PlayerInputCtrlVR : MonoBehaviour
             inputActions[i] = ScriptableObject.CreateInstance<InputActions>();
             inputActions[i].id = action_idx[i];
         }
-        CheckEventIdx(0);
+    }
+    private void Start()
+    {
+        
+        //CheckEventIdx(0);
     }
     private void OnEnable()
     {
@@ -47,7 +50,7 @@ public class PlayerInputCtrlVR : MonoBehaviour
 
             return;
         }
-        //Debug.Log($"GM:{idx} | INPUT:{action_idx[current_idx + 1]}");
+        Debug.Log($"GM:{idx} | INPUT:{action_idx[current_idx + 1]}");
 
         if (idx == action_idx[current_idx + 1])
         {
