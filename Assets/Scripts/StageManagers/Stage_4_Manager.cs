@@ -98,7 +98,7 @@ public class Stage_4_Manager : StageManager
 
         // grab diary
 
-        AddEvent(21, diary_Open_Controller.NextPage);   
+        AddEvent(21, Event_21_22_23);   
         // 21: trigger button down -> diary change page
 
         AddEvent(22, diary_Open_Controller.NextPageAgain);   
@@ -107,8 +107,20 @@ public class Stage_4_Manager : StageManager
         AddEvent(23, DiaryFadeoutAndYarnsFall);   
         // 23: trigger button down -> diary become yarns and fall, then transition to next scene
 
-        //ReactOnInput(0); //uncomment this line if first event needs to start defaultly
-        StartCoroutine(RunEntireFlow(24));
+        ReactOnInput(0); //uncomment this line if first event needs to start defaultly
+        //StartCoroutine(RunEntireFlow(24));
+    }
+
+    public void Event_21_22_23() {
+        diary_Open_Controller.NextPage();
+        StartCoroutine(Coroutine_21_22_23());
+    }
+
+    IEnumerator Coroutine_21_22_23() {
+        for (int i = 22; i < 24; i++) {
+            yield return new WaitForSeconds(2.0f);
+            ReactOnInput(i);
+        }
     }
 
     IEnumerator RunEntireFlow(int n) {
