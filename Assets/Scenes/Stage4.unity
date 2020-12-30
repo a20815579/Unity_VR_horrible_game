@@ -326,6 +326,11 @@ PrefabInstance:
     - target: {fileID: 1306129043612253070, guid: 22152f2703802c244887a9755e6f4eda,
         type: 3}
       propertyPath: m_OnSelectCanceled.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306129043612253070, guid: 22152f2703802c244887a9755e6f4eda,
+        type: 3}
+      propertyPath: m_OnSelectEntered.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1306129043612253070, guid: 22152f2703802c244887a9755e6f4eda,
@@ -356,6 +361,31 @@ PrefabInstance:
     - target: {fileID: 1306129043612253070, guid: 22152f2703802c244887a9755e6f4eda,
         type: 3}
       propertyPath: m_OnSelectCanceled.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306129043612253070, guid: 22152f2703802c244887a9755e6f4eda,
+        type: 3}
+      propertyPath: m_OnSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306129043612253070, guid: 22152f2703802c244887a9755e6f4eda,
+        type: 3}
+      propertyPath: m_OnSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306129043612253070, guid: 22152f2703802c244887a9755e6f4eda,
+        type: 3}
+      propertyPath: m_OnSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1143437830}
+    - target: {fileID: 1306129043612253070, guid: 22152f2703802c244887a9755e6f4eda,
+        type: 3}
+      propertyPath: m_OnSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResponseOnInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 1306129043612253070, guid: 22152f2703802c244887a9755e6f4eda,
+        type: 3}
+      propertyPath: m_OnSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3802517025917427768, guid: 22152f2703802c244887a9755e6f4eda,
@@ -6305,7 +6335,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7623300917566541338
 Transform:
   m_ObjectHideFlags: 0
