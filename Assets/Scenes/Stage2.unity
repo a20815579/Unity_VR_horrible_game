@@ -4840,6 +4840,11 @@ PrefabInstance:
       propertyPath: messages.Array.data[10]
       value: "\u6211\u9084\u662F\u56DE\u53BB\u5FF5\u66F8\uFF0C\u514D\u5F97\u8DDF\u4ED6\u4E00\u6A23 "
       objectReference: {fileID: 0}
+    - target: {fileID: 2049604298467392977, guid: 91444f3467fb942c89d46f52680a1f4f,
+        type: 3}
+      propertyPath: m_Text
+      value: "\u5C0B\u627E\u771F\u76F8"
+      objectReference: {fileID: 0}
     - target: {fileID: 2621941302713407188, guid: 91444f3467fb942c89d46f52680a1f4f,
         type: 3}
       propertyPath: action_idx.Array.data[2]
@@ -4919,6 +4924,16 @@ PrefabInstance:
         type: 3}
       propertyPath: action_idx.Array.data[13]
       value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571399149076543251, guid: 91444f3467fb942c89d46f52680a1f4f,
+        type: 3}
+      propertyPath: m_Text
+      value: "\u5149\u4E8C\u820D 844\u623F"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6638751549044788372, guid: 91444f3467fb942c89d46f52680a1f4f,
+        type: 3}
+      propertyPath: m_Text
+      value: "\u7B2C\u4E8C\u7AE0"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91444f3467fb942c89d46f52680a1f4f, type: 3}
