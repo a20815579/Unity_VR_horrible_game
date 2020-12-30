@@ -18,7 +18,7 @@ public class FriendAnimCtrl : MonoBehaviour
 
     public void DropHead()
     {
-        anim.StopPlayback();
+        anim.speed = 0;
         OriginalHeadObj.SetActive(false);
         DropHeadObj.SetActive(true);
         DropHeadObj.GetComponent<Rigidbody>().AddTorque(Vector3.forward);
