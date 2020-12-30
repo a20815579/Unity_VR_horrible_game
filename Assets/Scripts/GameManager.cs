@@ -34,16 +34,15 @@ public class GameManager : MonoBehaviour
         //DontDestroyOnLoad(gameObject);
         //Debug.Log("Get Stage Managers");
         stageManager = GetComponent<StageManager>();
-        if (LoadingScenesCtrl.self)
-        {
-            LoadingScenesCtrl.self.GetComponent<Animator>().SetBool("WithChapter", stageManager.LoadWithChapter);
-        }
-        else
+        
+    }
+    private void Start()
+    {
+        if (!LoadingScenesCtrl.self.GetComponent<Animator>().enabled)
         {
             StageStart();
         }
     }
-    
 
     public void StageStart()
     {
