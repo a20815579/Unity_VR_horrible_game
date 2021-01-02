@@ -103,6 +103,7 @@ public class Stage_7_Manager : StageManager
     void ShowCelebrateImg()
     {
         celebrate.SetActive(true);
+        PlaySFX();
     }
 
     void HideCelebrateImg()
