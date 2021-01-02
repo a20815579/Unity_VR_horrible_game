@@ -265,6 +265,7 @@ MonoBehaviour:
   effects:
   - {fileID: 8300000, guid: 20cb8c65d6e3a4c0c868adc30aa95836, type: 3}
   - {fileID: 8300000, guid: 8851e4872491e2140a0905e558b1efd9, type: 3}
+  - {fileID: 8300000, guid: 991228e77ede540429da3ec0a703e9df, type: 3}
   - {fileID: 8300000, guid: 85d539d0ac3ba447586c4847d0e99704, type: 3}
   BGMs:
   - {fileID: 8300000, guid: 7c2e341828b9b9f459553d3710341c5b, type: 3}
@@ -16415,6 +16416,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 782431162}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &782431164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782431163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d28db83163824a58907ff32fc504902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage_8_Manager: {fileID: 3977494}
 --- !u!135 &782431166
 SphereCollider:
   m_ObjectHideFlags: 0
