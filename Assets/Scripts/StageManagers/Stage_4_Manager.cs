@@ -33,7 +33,7 @@ public class Stage_4_Manager : StageManager
         // text event(14)
         // show image(2): 4 9
 
-        AddEvent(0, ShowPlayerUIMessage);   
+        AddEvent(0, ShowMsgAndPlayBGM);   
         // 0: show message: 咦？我怎麼突然移動到學長的房間了...?!!
         
         AddEvent(1, ShowPlayerUIMessage);   
