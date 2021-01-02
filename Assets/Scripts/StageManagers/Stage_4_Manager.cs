@@ -141,13 +141,13 @@ public class Stage_4_Manager : StageManager
     }
 
     void ChangeDiaryToOpenAndPlaySoundEffect() {
-        audios[0].Play();
+        PlaySFX();
         ShowItemImage();
         DelayThenDoNext(0.5f);
     }
 
     void ShowImageAndPlaySoundEffect() {
-        audios[0].Play();
+        PlaySFX();
         ShowItemImage();
     }
 
@@ -163,14 +163,13 @@ public class Stage_4_Manager : StageManager
 
     void SingleYarnFalls() {
         ball.SetActive(true);
+        PlayBGM();
+        PlaySFX();
     }
     
     IEnumerator MultipleYarnsFadeInAndFall(int n) {
-        float soundDecSpeed = 0.03f;
         for (int i = 0; i < n; i++) {
-            audios[1].volume -= soundDecSpeed;
-            Debug.Log(audios[1].volume);
-
+            PlaySFX();
             Vector3 diaryPos = diaryOpend.transform.position;
             Vector3 pos = new Vector3(
                 diaryPos.x + Random.Range(-0.3f, 0.3f),
@@ -179,18 +178,15 @@ public class Stage_4_Manager : StageManager
             );
             Instantiate(ball, pos, diaryOpend.transform.rotation);
 
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.05f);
         }
-        
-        audios[1].Stop();
-
         TransitionToNextScene();
     }
 
     void DiaryFadeoutAndYarnsFall() {
         // 20 balls
-        int n = 20;
-        audios[1].Play();
+        int n = 10;
+        PlaySFX();
         StartCoroutine(MultipleYarnsFadeInAndFall(n));
 
         diary_disappear.FadeOut();
