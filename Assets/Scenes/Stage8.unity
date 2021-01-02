@@ -265,6 +265,7 @@ MonoBehaviour:
   effects:
   - {fileID: 8300000, guid: 20cb8c65d6e3a4c0c868adc30aa95836, type: 3}
   - {fileID: 8300000, guid: 8851e4872491e2140a0905e558b1efd9, type: 3}
+  - {fileID: 8300000, guid: 991228e77ede540429da3ec0a703e9df, type: 3}
   - {fileID: 8300000, guid: 85d539d0ac3ba447586c4847d0e99704, type: 3}
   BGMs:
   - {fileID: 8300000, guid: 7c2e341828b9b9f459553d3710341c5b, type: 3}
@@ -3852,7 +3853,7 @@ GameObject:
   - component: {fileID: 138695138}
   m_Layer: 0
   m_Name: Water
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16415,6 +16416,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 782431162}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &782431164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782431163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d28db83163824a58907ff32fc504902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage_8_Manager: {fileID: 3977494}
 --- !u!135 &782431166
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -21104,7 +21118,7 @@ GameObject:
   - component: {fileID: 1039659201}
   m_Layer: 0
   m_Name: Stones (1)
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24459,6 +24473,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: bridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 20ec98463d8e5844f91b391aa95475be,
+        type: 3}
+      propertyPath: m_TagString
+      value: Water
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20ec98463d8e5844f91b391aa95475be, type: 3}
@@ -31019,6 +31038,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterPool (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1461882576326966, guid: 296b4936227b1b843a3201c12717a000, type: 3}
+      propertyPath: m_TagString
+      value: Water
+      objectReference: {fileID: 0}
     - target: {fileID: 4044183635471120, guid: 296b4936227b1b843a3201c12717a000, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.116352
@@ -33700,7 +33723,7 @@ GameObject:
   - component: {fileID: 1611636538}
   m_Layer: 0
   m_Name: Bushes
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47591,6 +47614,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069460776185598062, guid: cb59fb02feb053b4f893cfca3736f3cb,
+        type: 3}
+      propertyPath: m_TagString
+      value: Water
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb59fb02feb053b4f893cfca3736f3cb, type: 3}
