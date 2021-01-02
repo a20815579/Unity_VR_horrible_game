@@ -8,7 +8,9 @@ public class Stage_8_Manager : StageManager
     HappyBirthdaySheetCtrl happyBirthdaySheetCtrl;
     [SerializeField]
     GameObject lights;
+    public FriendAnimCtrl[] friends;
 
+    [HideInInspector] 
     public bool isBlocking = false;
 
     public override void SetupEvents()
@@ -92,6 +94,11 @@ public class Stage_8_Manager : StageManager
         BGM_player.Play();
 
         isBlocking = false;
+
+        for(int i=0; i<friends.Length; i++)
+        {
+            friends[i].Clap(true);
+        }
     }
 
     void ShowImageAndPlaySoundEffect() {
