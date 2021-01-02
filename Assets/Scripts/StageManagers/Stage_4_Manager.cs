@@ -127,7 +127,7 @@ public class Stage_4_Manager : StageManager
     {
         PlaySFX();
         blood_msg.SetActive(true);
-        DelayThenDoNext(1f);
+        DelayThenDoNext(1.5f);
     }
 
     void ShowMsgAndPlayBGM()
@@ -183,7 +183,7 @@ public class Stage_4_Manager : StageManager
         ball.SetActive(true);
         PlayBGM();
         PlaySFX();
-        DelayThenDoNext(2f);
+        DelayThenDoNext(1.5f);
     }
 
     void MultipleYarnsFadeInAndFall()
@@ -212,6 +212,7 @@ public class Stage_4_Manager : StageManager
         {
             rb.constraints = RigidbodyConstraints.None;
         }
+        DelayThenDoNext(2f);
     }
     void DiaryFadeoutAndYarnsFall() {        
         MultipleYarnsFadeInAndFall();
