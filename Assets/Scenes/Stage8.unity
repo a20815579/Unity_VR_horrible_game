@@ -211,7 +211,6 @@ GameObject:
   - component: {fileID: 3977492}
   - component: {fileID: 3977491}
   - component: {fileID: 3977494}
-  - component: {fileID: 3977493}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -247,38 +246,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3977493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3977490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d82a2a9143088e42ac25d8769c5e4c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentId: 0
-  totalEventSize: 12
-  Effect_player: {fileID: 1079893384}
-  BGM_player: {fileID: 1011126353}
-  effects:
-  - {fileID: 8300000, guid: 20cb8c65d6e3a4c0c868adc30aa95836, type: 3}
-  - {fileID: 8300000, guid: 85d539d0ac3ba447586c4847d0e99704, type: 3}
-  BGMs:
-  - {fileID: 8300000, guid: 7c2e341828b9b9f459553d3710341c5b, type: 3}
-  effect_idx: 0
-  bgm_idx: 0
-  LoadWithChapter: 0
-  friends:
-  - {fileID: 939537499}
-  - {fileID: 919132148906175436}
-  - {fileID: 1875478966}
-  - {fileID: 7364710038088134585}
-  - {fileID: 237304384605397899}
-  openArm: {fileID: 939537498}
-  LonelyVoiceAnim: {fileID: 1768108135}
 --- !u!114 &3977494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4287,7 +4254,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e61bf19a914f19d43baa6cd99ab6ae42,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.879
+      value: 1.785
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e61bf19a914f19d43baa6cd99ab6ae42,
         type: 3}
@@ -4297,7 +4264,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e61bf19a914f19d43baa6cd99ab6ae42,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.012
+      value: 0.944
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e61bf19a914f19d43baa6cd99ab6ae42,
         type: 3}
@@ -19530,6 +19497,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u6210\u529F\u6E56"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7561702739119481079, guid: 91444f3467fb942c89d46f52680a1f4f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.019
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91444f3467fb942c89d46f52680a1f4f, type: 3}
