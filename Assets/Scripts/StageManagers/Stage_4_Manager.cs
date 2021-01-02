@@ -69,43 +69,46 @@ public class Stage_4_Manager : StageManager
         AddEvent(11, ShowPlayerUIMessage);   
         // 11: button down -> show message: 室友：你不準告訴其他人，不然會害我被退宿
         
-        AddEvent(12, HideMessageAndYarnFalls);   
+        AddEvent(12, HideMessageAndYarnFalls);
         // 12: button down -> hide message and yarn falls
-        
-        AddEvent(13, ShowPlayerUIMessage);   
+
+        AddEvent(13, ShowMsgAndPlaySFX);
+        // 13: button down -> show message: 啊！！ 人.......是人頭！！
+
+        AddEvent(14, ShowPlayerUIMessage);   
         // 13: button down -> show message: 室友：你怎麼突然很驚恐地往那邊看??
         
-        AddEvent(14, ShowPlayerUIMessage);   
-        // 14: button down -> show message: 室友：那邊根本沒東西啊...
-        
         AddEvent(15, ShowPlayerUIMessage);   
+        // 14: button down -> show message: 室友：那邊根本沒東西啊...?!!
+        
+        AddEvent(16, ShowPlayerUIMessage);   
         // 15: button down -> show message: 室友：啊！矛求在一個月前也是突然這樣，
     
-        AddEvent(16, ShowPlayerUIMessage);   
+        AddEvent(17, ShowPlayerUIMessage);   
         // 16: button down -> show message: 室友：從那之後，他就越來越奇怪，
         
-        AddEvent(17, ShowPlayerUIMessage);   
+        AddEvent(18, ShowPlayerUIMessage);   
         // 17: button down -> show message: 室友：而且變得很容易暴怒，
         
-        AddEvent(18, ShowPlayerUIMessage);   
+        AddEvent(19, ShowPlayerUIMessage);   
         // 18: button down -> show message: 室友：不然他本來不是這樣的人...
         
-        AddEvent(19, HidePlayerUIMessage);   
+        AddEvent(20, HidePlayerUIMessage);   
         // 19: button down -> hide message
         
-        AddEvent(20, ChangeDiaryToOpenAndPlaySoundEffect);
+        AddEvent(21, ChangeDiaryToOpenAndPlaySoundEffect);
         // 20: select on diary -> show item image
 
-        AddEvent(21, DelayDiaryAndHide);
+        AddEvent(22, DelayDiaryAndHide);
         //delay 0.5 s -> hide UI and open diary
 
-        AddEvent(22, DiaryNextPage);
+        AddEvent(23, DiaryNextPage);
         //trigger diary -> show 2020/12/19&21
 
-        AddEvent(23, DiaryNextPageAgain);
+        AddEvent(24, DiaryNextPageAgain);
         // 21: delay 5s -> show 2020/12/23
 
-        AddEvent(24, DiaryFadeoutAndYarnsFall);   
+        AddEvent(25, DiaryFadeoutAndYarnsFall);   
         // 23: delay 2 s -> diary become yarns and fall, then transition to next scene
 
         ReactOnInput(0); //uncomment this line if first event needs to start defaultly
@@ -115,6 +118,11 @@ public class Stage_4_Manager : StageManager
     void ShowMsgAndPlayBGM()
     {
         PlayBGM();
+        ShowPlayerUIMessage();
+    }
+    void ShowMsgAndPlaySFX()
+    {
+        PlaySFX();
         ShowPlayerUIMessage();
     }
 
@@ -164,13 +172,14 @@ public class Stage_4_Manager : StageManager
 
     void HideMessageAndYarnFalls() {
         HidePlayerUIMessage();
-        Delay(0.5f, SingleYarnFalls);
+        Delay(1f, SingleYarnFalls);
     }
 
     void SingleYarnFalls() {
         ball.SetActive(true);
         PlayBGM();
         PlaySFX();
+        DelayThenDoNext(2f);
     }
     
     IEnumerator MultipleYarnsFadeInAndFall(int n) {
