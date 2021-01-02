@@ -164,7 +164,7 @@ public class Stage_4_Manager : StageManager
 
     void HideMessageAndYarnFalls() {
         HidePlayerUIMessage();
-        SingleYarnFalls();
+        Delay(0.5f, SingleYarnFalls);
     }
 
     void SingleYarnFalls() {
@@ -174,8 +174,7 @@ public class Stage_4_Manager : StageManager
     }
     
     IEnumerator MultipleYarnsFadeInAndFall(int n) {
-        for (int i = 0; i < n; i++) {
-            PlaySFX();
+        for (int i = 0; i < n; i++) {            
             Vector3 diaryPos = diaryOpend.transform.position;
             Vector3 pos = new Vector3(
                 diaryPos.x + Random.Range(-0.3f, 0.3f),
