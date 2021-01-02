@@ -11,7 +11,6 @@ public class Word_1_3_Ctrl : MonoBehaviour
     {
         Debug.Log("Word Appear");
         wordImg.GetComponent<Animation>().Play("FadeIn");
-        
     }
     
 }

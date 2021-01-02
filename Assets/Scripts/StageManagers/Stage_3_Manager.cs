@@ -110,8 +110,8 @@ public class Stage_3_Manager : StageManager
 
     void DropBall()
     {
-        ShowPlayerUIMessage();
-        PlaySFX();
+        Delay(0.7f,ShowPlayerUIMessage);
+        Delay(0.7f, PlaySFX);
     }
 
     void HideMessageAndDoNext()
@@ -127,7 +127,7 @@ public class Stage_3_Manager : StageManager
     void ShowBloodWord_3()
     {
         word_3.Appear();
-        word_3.transform.position = Ball.transform.position;
+        word_3.transform.position = new Vector3(Ball.transform.position.x, 0.675f , Ball.transform.position.z);
         PlaySFX();
         Delay(2f, TransitionToNextScene);
     }

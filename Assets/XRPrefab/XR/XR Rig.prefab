@@ -1290,6 +1290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72fa0cb94429b354f8afdd1455aef202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BG: {fileID: 843904840776409275}
   messages:
   - "\u5BA4\u53CB\uFF1A\u600E\u9EBC\u6703\u767C\u751F\u9019\u7A2E\u4E8B... "
   - "\u5BA4\u53CB\uFF1A\u54E6\u90A3\u662F\u77DB\u6C42\u5DE5\u6578(\u66AB\u5B9A)\u8003\u7206\u7684\u8003\u5377\uFF0C\u96D6\u7136\u4ED6\u5728\u8003\u524D\u5F88\u8A8D\u771F\u8B80\uFF0C\u4F46\u6700\u5F8C\u9084\u662F\u6C92\u8003\u597D... "
@@ -2095,7 +2096,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8663625445145917746}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.026}
+  m_LocalPosition: {x: 0, y: 0, z: 0.06}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 4861814279459733256}
@@ -2122,7 +2123,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8663625445145917746}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 

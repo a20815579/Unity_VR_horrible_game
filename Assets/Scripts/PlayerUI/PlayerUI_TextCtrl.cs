@@ -6,6 +6,8 @@ public class PlayerUI_TextCtrl : MonoBehaviour
 {
     public static PlayerUI_TextCtrl self;
     Text text;
+    [SerializeField]
+    Image BG;
 
     [SerializeField]
     private string[] messages;
@@ -24,6 +26,7 @@ public class PlayerUI_TextCtrl : MonoBehaviour
     public void ShowText()
     {
         text.enabled = true;
+        BG.enabled = true;
         message_idx++;
         if (message_idx < messages.Length)
         {
@@ -34,6 +37,7 @@ public class PlayerUI_TextCtrl : MonoBehaviour
     {
         text.text = "";
         text.enabled = false;
+        BG.enabled = false;
 
     }
 }
