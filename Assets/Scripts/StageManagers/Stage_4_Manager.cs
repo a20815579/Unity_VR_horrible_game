@@ -28,9 +28,9 @@ public class Stage_4_Manager : StageManager
     {
         Debug.Log("Stage 4 event setup");
 
-        AddEvent(0, MultipleYarnsFadeInAndFall);
+        //AddEvent(0, MultipleYarnsFadeInAndFall);
 
-        //AddEvent(0, ShowMsgAndPlayBGM);   
+        AddEvent(0, ShowMsgAndPlayBGM);   
         // 0: show message: 咦？我怎麼突然移動到學長的房間了...?!!
         
         AddEvent(1, ShowPlayerUIMessage);   
@@ -150,7 +150,7 @@ public class Stage_4_Manager : StageManager
     void DiaryNextPage()
     {
         diary_Open_Controller.NextPage();
-        DelayThenDoNext(2f);
+        DelayThenDoNext(4f);
     }
     void DiaryNextPageAgain()
     {
