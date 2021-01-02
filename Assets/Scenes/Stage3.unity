@@ -665,6 +665,11 @@ PrefabInstance:
       propertyPath: message.Array.data[7].messageText
       value: "\u90A3\u4F4D\u5B78\u9577\u597D\u50CF\u662F\u4F4F844\uFF0C\u53BB\u554F\u554F\u770B\u4ED6\u7684\u5BA4\u53CB\uFF0C\u770B\u6703\u4E0D\u6703\u6709\u4EC0\u9EBC\u7DDA\u7D22"
       objectReference: {fileID: 0}
+    - target: {fileID: 743962194829126011, guid: 91444f3467fb942c89d46f52680a1f4f,
+        type: 3}
+      propertyPath: message.Array.data[5].messageType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 843904840776409275, guid: 91444f3467fb942c89d46f52680a1f4f,
         type: 3}
       propertyPath: m_Enabled
