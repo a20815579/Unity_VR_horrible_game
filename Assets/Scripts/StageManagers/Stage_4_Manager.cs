@@ -93,34 +93,40 @@ public class Stage_4_Manager : StageManager
         AddEvent(19, HidePlayerUIMessage);   
         // 19: button down -> hide message
         
-        AddEvent(20, ChangeDiaryToOpenAndPlaySoundEffect);   
-        // 20: select on diary -> diary open
+        AddEvent(20, ChangeDiaryToOpenAndPlaySoundEffect);
+        // 20: select on diary -> show item image
 
-        // grab diary
+        AddEvent(21, DelayDiaryAndHide);
+        //delay 0.5 s -> hide UI and open diary
 
-        AddEvent(21, Event_21_22_23);   
-        // 21: trigger button down -> diary change page
+        AddEvent(22, DiaryNextPage);
+        //trigger diary -> show 2020/12/19&21
 
-        AddEvent(22, diary_Open_Controller.NextPageAgain);   
-        // 22: trigger button down -> diary change page again
+        AddEvent(23, DiaryNextPageAgain);
+        // 21: delay 5s -> show 2020/12/23
 
-        AddEvent(23, DiaryFadeoutAndYarnsFall);   
-        // 23: trigger button down -> diary become yarns and fall, then transition to next scene
+        AddEvent(24, DiaryFadeoutAndYarnsFall);   
+        // 23: delay 2 s -> diary become yarns and fall, then transition to next scene
 
         ReactOnInput(0); //uncomment this line if first event needs to start defaultly
         //StartCoroutine(RunEntireFlow(24));
     }
 
-    public void Event_21_22_23() {
-        diary_Open_Controller.NextPage();
-        StartCoroutine(Coroutine_21_22_23());
+    void DelayDiaryAndHide()
+    {
+        diary_Close_Controller.ChangeToOpen();
+        HideItemImage();
     }
 
-    IEnumerator Coroutine_21_22_23() {
-        for (int i = 22; i < 24; i++) {
-            yield return new WaitForSeconds(2.0f);
-            ReactOnInput(i);
-        }
+    void DiaryNextPage()
+    {
+        diary_Open_Controller.NextPage();
+        DelayThenDoNext(2f);
+    }
+    void DiaryNextPageAgain()
+    {
+        diary_Open_Controller.NextPageAgain();
+        DelayThenDoNext(2f);
     }
 
     IEnumerator RunEntireFlow(int n) {
@@ -136,7 +142,8 @@ public class Stage_4_Manager : StageManager
 
     void ChangeDiaryToOpenAndPlaySoundEffect() {
         audios[0].Play();
-        diary_Close_Controller.ChangeToOpen();
+        ShowItemImage();
+        DelayThenDoNext(0.5f);
     }
 
     void ShowImageAndPlaySoundEffect() {

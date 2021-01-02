@@ -17,8 +17,8 @@ public class Stage_5_Manager : StageManager
         AddEvent(3, FoInVanish1); //click foIn -> Vanish
         AddEvent(4, FoInVanish2); //click foIn -> Vanish
         AddEvent(5, DoNothing); // click FuChao -> do nothing
-        AddEvent(6, OpenDiary); //click diary -> show 744同學的日記 & open diary
-        AddEvent(7, HideItemImage); //click -> hide UI
+        AddEvent(6, OpenDiary); //click diary -> show 744同學的日記
+        AddEvent(7, DelayDiaryAndHide); //delay 0.5 s -> hide UI and open diary
         AddEvent(8, DiaryNextPage); //trigger diary -> show 2019/12/19&21
         AddEvent(9, DiaryNextPageAgain); //delay 5s -> show 2019/12/23
         AddEvent(10, ShowPlayerUIMessage); //click -> 竟然跟矛求學長的日記內容一模一樣..！！該不會他後來跟矛求學長一樣自殺...
@@ -53,10 +53,16 @@ public class Stage_5_Manager : StageManager
     }
     void OpenDiary()
     {
-        PlaySFX();        
-        diary_close_controller.ChangeToOpen();
+        PlaySFX();                
         ShowItemImage();
+        DelayThenDoNext(0.5f);
     }
+    void DelayDiaryAndHide()
+    {
+        diary_close_controller.ChangeToOpen();
+        HideItemImage();
+    }
+
     void DiaryNextPage()
     {
         diary_open_controller.NextPage();
