@@ -269,7 +269,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 62746f14580e5674abc40d596002b495, type: 3}
   BGMs:
   - {fileID: 8300000, guid: 07d97cf08b26d26498ec30d5bbc77375, type: 3}
-  - {fileID: 8300000, guid: f5bd0677b3b4c964f92a7fdefb657268, type: 3}
+  - {fileID: 8300000, guid: 78e45dc3432eed94bb927e201eef8785, type: 3}
   effect_idx: 0
   bgm_idx: 0
   LoadWithChapter: 0
