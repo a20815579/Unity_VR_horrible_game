@@ -8,9 +8,13 @@ public class Stage_4_Manager : StageManager
     [SerializeField]
     GameObject ball;
     [SerializeField]
+    GameObject small_ball;
+    [SerializeField]
     GameObject diaryCloseed;
     [SerializeField]
     GameObject diaryOpend;
+    [SerializeField]
+    GameObject blood_msg;
     [SerializeField]
     Diary_close_controller diary_Close_Controller;
     [SerializeField]
@@ -18,22 +22,15 @@ public class Stage_4_Manager : StageManager
     [SerializeField]
     DiaryDisappearCtrl diary_disappear;
 
+    List<Rigidbody> balls = new List<Rigidbody>();
+
     public override void SetupEvents()
     {
         Debug.Log("Stage 4 event setup");
-        
-        /* add event-triggered functions to delegate list */
-        //AddEvent(0, ShowPlayerUIMessage); //0:show message(default)
-        //AddEvent(1, HidePlayerUIMessage); //1:button down -> hide message -> wait for click window
-        //AddEvent(2, ShowPlayerUIMessage); //2:click window -> show message
-        //AddEvent(3, TransitionToNextScene); //3:click monitor -> next scene
 
-        // total event: 24
-        // touch event(18): 1 2 3 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
-        // text event(14)
-        // show image(2): 4 9
+        AddEvent(0, MultipleYarnsFadeInAndFall);
 
-        AddEvent(0, ShowMsgAndPlayBGM);   
+        //AddEvent(0, ShowMsgAndPlayBGM);   
         // 0: show message: 咦？我怎麼突然移動到學長的房間了...?!!
         
         AddEvent(1, ShowPlayerUIMessage);   
@@ -108,11 +105,29 @@ public class Stage_4_Manager : StageManager
         AddEvent(24, DiaryNextPageAgain);
         // 21: delay 5s -> show 2020/12/23
 
-        AddEvent(25, DiaryFadeoutAndYarnsFall);   
+        AddEvent(25, DiaryFadeoutAndYarnsFall);
         // 23: delay 2 s -> diary become yarns and fall, then transition to next scene
 
+        AddEvent(26, ManyBallsFall);
+
+        AddEvent(27, ShowBloodMsg);
+        // delay 1s
+
+        AddEvent(28, ShowPlayerUIMessage);
+
+        AddEvent(29, ShowPlayerUIMessage);
+
+        AddEvent(30, ShowPlayerUIMessage);
+
+        AddEvent(31, TransitionToNextScene);
+
         ReactOnInput(0); //uncomment this line if first event needs to start defaultly
-        //StartCoroutine(RunEntireFlow(24));
+    }
+    void ShowBloodMsg()
+    {
+        PlaySFX();
+        blood_msg.SetActive(true);
+        DelayThenDoNext(1f);
     }
 
     void ShowMsgAndPlayBGM()
@@ -143,17 +158,6 @@ public class Stage_4_Manager : StageManager
         DelayThenDoNext(2f);
     }
 
-    IEnumerator RunEntireFlow(int n) {
-        for (int i = 0; i < 19; i++) {
-            ReactOnInput(i);
-        }
-
-        for (int i = 19; i < n; i++) {
-            ReactOnInput(i);
-            yield return new WaitForSeconds(2.0f);
-        }
-    }
-
     void ChangeDiaryToOpenAndPlaySoundEffect() {
         PlaySFX();
         ShowItemImage();
@@ -181,38 +185,46 @@ public class Stage_4_Manager : StageManager
         PlaySFX();
         DelayThenDoNext(2f);
     }
-    
-    IEnumerator MultipleYarnsFadeInAndFall(int n) {
-        for (int i = 0; i < n; i++) {            
-            Vector3 diaryPos = diaryOpend.transform.position;
-            Vector3 pos = new Vector3(
-                diaryPos.x + Random.Range(-0.3f, 0.3f),
-                diaryPos.y + Random.Range(-0.3f, 0.3f),
-                diaryPos.z + Random.Range(-0.3f, 0.3f)
-            );
-            Instantiate(ball, pos, diaryOpend.transform.rotation);
 
-            yield return new WaitForSeconds(0.05f);
-        }
-        TransitionToNextScene();
-    }
-
-    void DiaryFadeoutAndYarnsFall() {
-        // 20 balls
-        int n = 10;
+    void MultipleYarnsFadeInAndFall()
+    {
         PlaySFX();
-        StartCoroutine(MultipleYarnsFadeInAndFall(n));
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 7; j++)
+            {
+                Vector3 diaryPos = diaryOpend.transform.position;
+                Vector3 pos = new Vector3(
+                    diaryPos.x + (i - 2) * 0.04f, diaryPos.y + 0.04f,
+                    diaryPos.z + (j - 3) * 0.04f
+                );
+                GameObject obj = Instantiate(small_ball, pos, diaryOpend.transform.rotation) as GameObject;
+                obj.GetComponent<BallAppearCtrl>().FadeIn();
+                balls.Add(obj.GetComponent<Rigidbody>());
 
+            }            
+        }
+        Delay(1F, ManyBallsFall);
+    }
+    void ManyBallsFall()
+    {        
+        foreach (Rigidbody rb in balls)
+        {
+            rb.constraints = RigidbodyConstraints.None;
+        }
+    }
+    void DiaryFadeoutAndYarnsFall() {        
+        MultipleYarnsFadeInAndFall();
         diary_disappear.FadeOut();
     }
 
-    protected void ShowPlayerUIMessage2()
+    void ShowPlayerUIMessage2()
     {
         Debug.Log("show");
         PlayerUI_TextCtrl.self.ShowText();
         DelayThenDoNext(2f);
     }
-    protected void HidePlayerUIMessage2()
+    void HidePlayerUIMessage2()
     {
         PlayerUI_TextCtrl.self.HideText();
         DelayThenDoNext(2f);

@@ -8,6 +8,7 @@ public class BallFalls : MonoBehaviour {
     void Start()
     {
         audio = GetComponent<AudioSource>();
+
     }
     void OnCollisionEnter(Collision collisionInfo)
     {
@@ -16,4 +17,5 @@ public class BallFalls : MonoBehaviour {
             isFalled = true;
         }
     }
+
 }
