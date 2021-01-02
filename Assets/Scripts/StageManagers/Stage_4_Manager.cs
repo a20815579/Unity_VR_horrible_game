@@ -112,6 +112,12 @@ public class Stage_4_Manager : StageManager
         //StartCoroutine(RunEntireFlow(24));
     }
 
+    void ShowMsgAndPlayBGM()
+    {
+        PlayBGM();
+        ShowPlayerUIMessage();
+    }
+
     void DelayDiaryAndHide()
     {
         diary_Close_Controller.ChangeToOpen();
