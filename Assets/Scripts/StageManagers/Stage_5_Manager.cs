@@ -63,8 +63,6 @@ public class Stage_5_Manager : StageManager
         HideItemImage();
     }
 
-
-
     void DiaryNextPage()
     {
         diary_open_controller.NextPage();
