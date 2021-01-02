@@ -33,7 +33,7 @@ public class Stage_4_Manager : StageManager
         // text event(14)
         // show image(2): 4 9
 
-        AddEvent(0, ShowPlayerUIMessage);   
+        AddEvent(0, ShowMsgAndPlayBGM);   
         // 0: show message: 咦？我怎麼突然移動到學長的房間了...?!!
         
         AddEvent(1, ShowPlayerUIMessage);   
@@ -112,6 +112,12 @@ public class Stage_4_Manager : StageManager
         //StartCoroutine(RunEntireFlow(24));
     }
 
+    void ShowMsgAndPlayBGM()
+    {
+        PlayBGM();
+        ShowPlayerUIMessage();
+    }
+
     void DelayDiaryAndHide()
     {
         diary_Close_Controller.ChangeToOpen();
@@ -141,13 +147,13 @@ public class Stage_4_Manager : StageManager
     }
 
     void ChangeDiaryToOpenAndPlaySoundEffect() {
-        audios[0].Play();
+        PlaySFX();
         ShowItemImage();
         DelayThenDoNext(0.5f);
     }
 
     void ShowImageAndPlaySoundEffect() {
-        audios[0].Play();
+        PlaySFX();
         ShowItemImage();
     }
 
@@ -158,19 +164,17 @@ public class Stage_4_Manager : StageManager
 
     void HideMessageAndYarnFalls() {
         HidePlayerUIMessage();
-        SingleYarnFalls();
+        Delay(0.5f, SingleYarnFalls);
     }
 
     void SingleYarnFalls() {
         ball.SetActive(true);
+        PlayBGM();
+        PlaySFX();
     }
     
     IEnumerator MultipleYarnsFadeInAndFall(int n) {
-        float soundDecSpeed = 0.03f;
-        for (int i = 0; i < n; i++) {
-            audios[1].volume -= soundDecSpeed;
-            Debug.Log(audios[1].volume);
-
+        for (int i = 0; i < n; i++) {            
             Vector3 diaryPos = diaryOpend.transform.position;
             Vector3 pos = new Vector3(
                 diaryPos.x + Random.Range(-0.3f, 0.3f),
@@ -179,18 +183,15 @@ public class Stage_4_Manager : StageManager
             );
             Instantiate(ball, pos, diaryOpend.transform.rotation);
 
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.05f);
         }
-        
-        audios[1].Stop();
-
         TransitionToNextScene();
     }
 
     void DiaryFadeoutAndYarnsFall() {
         // 20 balls
-        int n = 20;
-        audios[1].Play();
+        int n = 10;
+        PlaySFX();
         StartCoroutine(MultipleYarnsFadeInAndFall(n));
 
         diary_disappear.FadeOut();
