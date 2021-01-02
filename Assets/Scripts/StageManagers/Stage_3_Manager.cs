@@ -31,7 +31,7 @@ public class Stage_3_Manager : StageManager
     public MonitorCtrl monitor;
     public Word_1_3_Ctrl word_1;
     public Word_1_3_Ctrl word_3;
-    public GameObject Ball;
+    public GameObject Ball, camera;
 
     public override void SetupEvents()
     {
@@ -110,8 +110,8 @@ public class Stage_3_Manager : StageManager
 
     void DropBall()
     {
-        ShowPlayerUIMessage();
-        PlaySFX();
+        Delay(0.7f,ShowPlayerUIMessage);
+        Delay(0.7f, PlaySFX);
     }
 
     void HideMessageAndDoNext()
@@ -126,9 +126,13 @@ public class Stage_3_Manager : StageManager
     
     void ShowBloodWord_3()
     {
-        word_3.Appear();
-        word_3.transform.position = Ball.transform.position;
+        word_3.transform.position = new Vector3(Ball.transform.position.x, 0.675f , Ball.transform.position.z);
         PlaySFX();
+        Debug.Log(camera.transform.eulerAngles);
+        Debug.Log(word_3.transform.eulerAngles);
+        word_3.Appear();
+        word_3.transform.eulerAngles 
+            = new Vector3(90, camera.transform.eulerAngles.y, 0);
         Delay(2f, TransitionToNextScene);
     }
 }

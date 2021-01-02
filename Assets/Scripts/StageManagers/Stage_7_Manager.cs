@@ -79,6 +79,7 @@ public class Stage_7_Manager : StageManager
     private void ShowWords()
     {
         WordsAnim.enabled = true;
+        PlaySFX();
         DelayThenDoNext(8.5f);
     }
 
