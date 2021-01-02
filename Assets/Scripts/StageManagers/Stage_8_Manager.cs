@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 public class Stage_8_Manager : StageManager
 {
     [SerializeField]
@@ -8,6 +9,9 @@ public class Stage_8_Manager : StageManager
     [SerializeField]
     GameObject ball;
     [SerializeField]
+    HappyBirthdaySheetCtrl happyBirthdaySheetCtrl;
+    [SerializeField]
+    GameObject spotLight;
 
     public override void SetupEvents()
     {
@@ -24,10 +28,14 @@ public class Stage_8_Manager : StageManager
         // text event()
         // show image():
 
-        AddEvent(0, ShowPlayerUIMessage);   
+        AddEvent(0, ShowImageAndPlaySoundEffect);   
         // 0: button down -> show UI: 彈生日快樂歌給毛球吧
 
-        
+        AddEvent(1, HideImageAndPlaySong);
+        // 1: button down -> hide image and play song
+
+        AddEvent(2, WaterPoolIgnite);
+        // 2: water pool collides with ball -> water pool ignites
 
         //StartCoroutine(RunEntireFlow(24));
     }
@@ -48,6 +56,15 @@ public class Stage_8_Manager : StageManager
             ReactOnInput(i);
             yield return new WaitForSeconds(2.0f);
         }
+    }
+
+    void WaterPoolIgnite() {
+        spotLight.SetActive(true);
+    }
+
+    void HideImageAndPlaySong() {
+        HideItemImage();
+        happyBirthdaySheetCtrl.ShowHappyBirthdaySheetAndPlaySong();
     }
 
     void ShowImageAndPlaySoundEffect() {
