@@ -11,7 +11,7 @@ public class BallFallsInWater : MonoBehaviour
     AudioSource audioSource;
     void OnCollisionEnter(Collision collisionInfo)
     {
-        if (collisionInfo.gameObject.tag == "Water"
+        if (collisionInfo.gameObject.name != "Rectangle073"
             && !isFalling) {
             isFalling = true;
             
