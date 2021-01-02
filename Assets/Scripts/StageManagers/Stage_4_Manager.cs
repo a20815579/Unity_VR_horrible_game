@@ -73,7 +73,7 @@ public class Stage_4_Manager : StageManager
         // 12: button down -> hide message and yarn falls
 
         AddEvent(13, ShowMsgAndPlaySFX);
-        // 13: button down -> show message: 啊！！ 人.......是人頭！！
+        // 13: delay -> show message: 啊！！ 人.......是人頭！！
 
         AddEvent(14, ShowPlayerUIMessage);   
         // 13: button down -> show message: 室友：你怎麼突然很驚恐地往那邊看??
