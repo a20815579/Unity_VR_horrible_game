@@ -1,26 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Stage_4_Manager : StageManager
+public class Stage_8_Manager : StageManager
 {
     [SerializeField]
     AudioSource[] audios;
     [SerializeField]
     GameObject ball;
     [SerializeField]
-    GameObject diaryCloseed;
-    [SerializeField]
-    GameObject diaryOpend;
-    [SerializeField]
-    Diary_close_controller diary_Close_Controller;
-    [SerializeField]
-    Diary_open_controller diary_Open_Controller;
-    [SerializeField]
-    DiaryDisappearCtrl diary_disappear;
 
     public override void SetupEvents()
     {
-        Debug.Log("Stage 4 event setup");
+        Debug.Log("Stage 8 event setup");
         
         /* add event-triggered functions to delegate list */
         //AddEvent(0, ShowPlayerUIMessage); //0:show message(default)
@@ -92,28 +83,9 @@ public class Stage_4_Manager : StageManager
         
         AddEvent(19, HidePlayerUIMessage);   
         // 19: button down -> hide message
-        
-        AddEvent(20, ChangeDiaryToOpenAndPlaySoundEffect);   
-        // 20: select on diary -> diary open
-
-        // grab diary
-
-        AddEvent(21, Event_21_22_23);   
-        // 21: trigger button down -> diary change page
-
-        AddEvent(22, diary_Open_Controller.NextPageAgain);   
-        // 22: trigger button down -> diary change page again
-
-        AddEvent(23, DiaryFadeoutAndYarnsFall);   
-        // 23: trigger button down -> diary become yarns and fall, then transition to next scene
 
         ReactOnInput(0); //uncomment this line if first event needs to start defaultly
         //StartCoroutine(RunEntireFlow(24));
-    }
-
-    public void Event_21_22_23() {
-        diary_Open_Controller.NextPage();
-        StartCoroutine(Coroutine_21_22_23());
     }
 
     IEnumerator Coroutine_21_22_23() {
@@ -134,11 +106,6 @@ public class Stage_4_Manager : StageManager
         }
     }
 
-    void ChangeDiaryToOpenAndPlaySoundEffect() {
-        audios[0].Play();
-        diary_Close_Controller.ChangeToOpen();
-    }
-
     void ShowImageAndPlaySoundEffect() {
         audios[0].Play();
         ShowItemImage();
@@ -157,38 +124,6 @@ public class Stage_4_Manager : StageManager
     void SingleYarnFalls() {
         ball.SetActive(true);
     }
-    
-    IEnumerator MultipleYarnsFadeInAndFall(int n) {
-        float soundDecSpeed = 0.03f;
-        for (int i = 0; i < n; i++) {
-            audios[1].volume -= soundDecSpeed;
-            Debug.Log(audios[1].volume);
-
-            Vector3 diaryPos = diaryOpend.transform.position;
-            Vector3 pos = new Vector3(
-                diaryPos.x + Random.Range(-0.3f, 0.3f),
-                diaryPos.y + Random.Range(-0.3f, 0.3f),
-                diaryPos.z + Random.Range(-0.3f, 0.3f)
-            );
-            Instantiate(ball, pos, diaryOpend.transform.rotation);
-
-            yield return new WaitForSeconds(0.2f);
-        }
-        
-        audios[1].Stop();
-
-        TransitionToNextScene();
-    }
-
-    void DiaryFadeoutAndYarnsFall() {
-        // 20 balls
-        int n = 20;
-        audios[1].Play();
-        StartCoroutine(MultipleYarnsFadeInAndFall(n));
-
-        diary_disappear.FadeOut();
-    }
-
     protected void ShowPlayerUIMessage2()
     {
         Debug.Log("show");
