@@ -6,15 +6,19 @@ using UnityEngine.UI;
 public class HappyBirthdaySheetCtrl : MonoBehaviour
 {
     Image sheet;
-    AudioSource audio;
+    [SerializeField]
+    public AudioSource audio;
 
     void Start()
     {
-        sheet = GetComponent<Image>();    
-        audio = GetComponent<AudioSource>();
+        sheet = GetComponent<Image>();
     }
     public void ShowHappyBirthdaySheetAndPlaySong() {
-        sheet.enabled = true;
+        gameObject.SetActive(true);
         audio.Play();
+    }
+
+    public void HideHappyBirthdaySheet() {
+        gameObject.SetActive(false);
     }
 }

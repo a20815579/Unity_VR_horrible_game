@@ -5,13 +5,11 @@ using UnityEngine.UI;
 public class Stage_8_Manager : StageManager
 {
     [SerializeField]
-    AudioSource[] audios;
-    [SerializeField]
-    GameObject ball;
-    [SerializeField]
     HappyBirthdaySheetCtrl happyBirthdaySheetCtrl;
     [SerializeField]
-    GameObject spotLight;
+    GameObject lights;
+
+    public bool isBlocking = false;
 
     public override void SetupEvents()
     {
@@ -23,52 +21,81 @@ public class Stage_8_Manager : StageManager
         //AddEvent(2, ShowPlayerUIMessage); //2:click window -> show message
         //AddEvent(3, TransitionToNextScene); //3:click monitor -> next scene
 
-        // total event: 
-        // touch event(): 
-        // text event()
-        // show image():
+        // total event: 9
+        // touch event(8): 0 1 3 4 5 6 7 8 
+        // text event(5) 
+        // show image(1): 0
 
         AddEvent(0, ShowImageAndPlaySoundEffect);   
         // 0: button down -> show UI: 彈生日快樂歌給毛球吧
 
-        AddEvent(1, HideImageAndPlaySong);
+        AddEvent(1, HideImageAndShowSheetThenPlaySong);
         // 1: button down -> hide image and play song
 
         AddEvent(2, WaterPoolIgnite);
         // 2: water pool collides with ball -> water pool ignites
 
-        //StartCoroutine(RunEntireFlow(24));
-    }
+        AddEvent(3, ShowPlayerUIMessage);
+        // 3: button down -> show message: 毛球: 謝謝你們幫我完成生前的心願
 
-    IEnumerator Coroutine_21_22_23() {
-        for (int i = 22; i < 24; i++) {
-            yield return new WaitForSeconds(2.0f);
-            ReactOnInput(i);
-        }
-    }
+        AddEvent(4, ShowPlayerUIMessage);
+        // 4: button down -> show message: 毛球: 消除我對人世的遺恨
 
+        AddEvent(5, ShowPlayerUIMessage);
+        // 5: button down -> show message: 毛球: 能夠像這樣被一群人慶生和丟進成功湖裡真開心!
+
+        AddEvent(6, ShowPlayerUIMessage);
+        // 6: button down -> show message: 毛球: 我也該好好離開人世了
+
+        AddEvent(7, ShowPlayerUIMessage);
+        // 7: button down -> show message: 毛球: 謝謝你們，再見！！
+
+        AddEvent(8, HideMessageAndSceneFadeout);
+        // 8: button down -> hide message and screen fadeout
+
+        StartCoroutine(RunEntireFlow(9));
+    }
+    
     IEnumerator RunEntireFlow(int n) {
-        for (int i = 0; i < 19; i++) {
+        for (int i = 0; i < n; i++) {
             ReactOnInput(i);
+            yield return new WaitForSeconds(15.0f);
         }
+    }
 
-        for (int i = 19; i < n; i++) {
-            ReactOnInput(i);
-            yield return new WaitForSeconds(2.0f);
-        }
+    void HideMessageAndSceneFadeout() {
+        HidePlayerUIMessage();
+        TransitionToNextScene();
     }
 
     void WaterPoolIgnite() {
-        spotLight.SetActive(true);
+        lights.SetActive(true);
     }
 
-    void HideImageAndPlaySong() {
+    void HideImageAndShowSheetThenPlaySong() {
+        isBlocking = true;
+
         HideItemImage();
+        BGM_player.Stop();
         happyBirthdaySheetCtrl.ShowHappyBirthdaySheetAndPlaySong();
+
+        float audioLength = happyBirthdaySheetCtrl.audio.clip.length;
+        
+        Invoke("HappyBirthdaySongFinished", audioLength + 0.5f);
+    }
+
+    void HappyBirthdaySongFinished() {
+        PlaySFX();
+
+        happyBirthdaySheetCtrl.HideHappyBirthdaySheet();
+
+        BGM_player.Play();
+
+        isBlocking = false;
     }
 
     void ShowImageAndPlaySoundEffect() {
-        audios[0].Play();
+        PlaySFX();
         ShowItemImage();
     }
 
@@ -77,14 +104,6 @@ public class Stage_8_Manager : StageManager
         ShowPlayerUIMessage();
     }
 
-    void HideMessageAndYarnFalls() {
-        HidePlayerUIMessage();
-        SingleYarnFalls();
-    }
-
-    void SingleYarnFalls() {
-        ball.SetActive(true);
-    }
     protected void ShowPlayerUIMessage2()
     {
         Debug.Log("show");
