@@ -136,7 +136,7 @@ public class StageManager : MonoBehaviour
         func();
     }
 
-    protected void PlaySFX()
+    public void PlaySFX()
     {
         Debug.Log(effect_idx);
         Effect_player.clip = effects[effect_idx];
@@ -144,7 +144,7 @@ public class StageManager : MonoBehaviour
         effect_idx++;
     }
 
-    protected void PlayBGM()
+    public void PlayBGM()
     {
         BGM_player.clip = BGMs[bgm_idx];
         BGM_player.Play();
