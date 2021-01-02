@@ -238,7 +238,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3977490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.54, y: 2.0599995, z: -0.1645}
+  m_LocalPosition: {x: -1.54, y: 2.0599995, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1011126352}
@@ -268,12 +268,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 85d539d0ac3ba447586c4847d0e99704, type: 3}
   BGMs:
   - {fileID: 8300000, guid: 7c2e341828b9b9f459553d3710341c5b, type: 3}
+  - {fileID: 8300000, guid: 03f7d0a0537dfe44290af94602a5974e, type: 3}
   effect_idx: 0
   bgm_idx: 0
   LoadWithChapter: 1
   happyBirthdaySheetCtrl: {fileID: 420952784}
   lights: {fileID: 1574683770}
-  friends: []
+  friends:
+  - {fileID: 939537499}
+  - {fileID: 919132148906175436}
+  - {fileID: 1875478966}
+  - {fileID: 7364710038088134585}
+  - {fileID: 237304384605397899}
   isBlocking: 0
 --- !u!1001 &7574261
 PrefabInstance:
@@ -20488,7 +20494,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7c2e341828b9b9f459553d3710341c5b, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.57
   m_Pitch: 1

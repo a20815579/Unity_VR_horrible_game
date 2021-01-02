@@ -55,7 +55,9 @@ public class Stage_8_Manager : StageManager
         AddEvent(8, HideMessageAndSceneFadeout);
         // 8: button down -> hide message and screen fadeout
 
-        StartCoroutine(RunEntireFlow(9));
+        //StartCoroutine(RunEntireFlow(9));
+
+        PlayBGM();
     }
     
     IEnumerator RunEntireFlow(int n) {
@@ -91,14 +93,14 @@ public class Stage_8_Manager : StageManager
 
         happyBirthdaySheetCtrl.HideHappyBirthdaySheet();
 
-        BGM_player.Play();
-
         isBlocking = false;
 
         for(int i=0; i<friends.Length; i++)
         {
             friends[i].Clap(true);
         }
+
+        PlayBGM();
     }
 
     void ShowImageAndPlaySoundEffect() {
