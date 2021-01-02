@@ -31,67 +31,83 @@ public class Stage_7_Manager : StageManager
      */
 
     [SerializeField]
-    GameObject ball;
+    GameObject ball, celebrate;
     [SerializeField]
-    GameObject diaryCloseed;
-    [SerializeField]
-    GameObject diaryOpend;
+    Animator WordsAnim;
     [SerializeField]
     Diary_close_controller diary_Close_Controller;
-    [SerializeField]
-    Diary_open_controller diary_Open_Controller;
-    [SerializeField]
-    DiaryDisappearCtrl diary_disappear;
 
     public override void SetupEvents()
     {
-        AddEvent(0, ShowPlayerUIMessage); //click->這...這裡是...444?? 
+        AddEvent(0, ShowPlayerUIMessage); //(X)->這...這裡是...444?? 
         AddEvent(1, ShowPlayerUIMessage); //click->我竟然來到了詛咒發源的房間...
         AddEvent(2, ShowPlayerUIMessage); //click->雖然不知為何突然來到這裡，總之先來找找看線索好了...
         AddEvent(3, ShowPlayerUIMessage); //click->雖然感覺這裡很可怕...
+        AddEvent(4, HidePlayerUIMessage); //click->hide Message
 
-        AddEvent(4, ThingsTurnRed); //click Diary->ThingsTurnRed
-        AddEvent(5, BallAppear); //delay->BallAppear + PlaySFX
-        AddEvent(6, ShowWords); //delay->ShowWords
-        AddEvent(7, ThingsDisappear); //delay->ThingsDisappear
-        AddEvent(8, ChangeDiaryToOpenAndPlaySoundEffect);//click diary -> diary open
+        AddEvent(5, ThingsTurnRed); //click FuChaoMain->ThingsTurnRed
+        AddEvent(6, BallAppear); //delay->BallAppear + PlaySFX
+        AddEvent(7, ShowWords); //delay->ShowWords
+        AddEvent(8, ThingsDisappear); //delay->ThingsDisappear
+        AddEvent(9, ChangeDiaryToOpenAndPlaySoundEffect);//click diary -> diary open
 
         // grab diary
 
-        AddEvent(9, ShowPlayerUIMessage);//Diary OnSelectExit -> 原來是因為很孤單又沒有人幫他慶生才自殺的QQ
-        AddEvent(10, ShowPlayerUIMessage);//click -> 可是要怎麼樣才能找到一群人幫忙慶生呢...                                    
-        AddEvent(11, ShowPlayerUIMessage);//click -> 有了！可以在二手版徵人看看！                                    
-        AddEvent(12, ShowItemImage);//click -> 徵人                            
-        AddEvent(13, ShowPlayerUIMessage);//click -> 希望可以徵的到人... 
-        AddEvent(14, TransitionToNextScene);//click -> NextScene          
+        AddEvent(10, ShowPlayerUIMessage);//Diary OnSelectExit -> 原來是因為很孤單又沒有人幫他慶生才自殺的QQ
+        AddEvent(11, ShowPlayerUIMessage);//click -> 可是要怎麼樣才能找到一群人幫忙慶生呢...                                    
+        AddEvent(12, ShowPlayerUIMessage);//click -> 有了！可以在二手版徵人看看！                                    
+        AddEvent(13, ShowCelebrateImg);//click -> 徵人                            
+        AddEvent(14, HideCelebrateImg);//click -> 希望可以徵的到人... 
 
         ReactOnInput(0); 
     }
     private void ThingsTurnRed()
     {
-        throw new NotImplementedException();
+        GetComponent<ThingsColorCtrl>().TurnRed();
+        PlaySFX();
+        DelayThenDoNext(3f);
     }
     private void BallAppear()
     {
-        throw new NotImplementedException();
+        ball.SetActive(true);
+        ball.GetComponent<BallAppearCtrl>().FadeIn();
+        PlaySFX();
+        DelayThenDoNext(3f);
     }
 
 
     private void ShowWords()
     {
-        throw new NotImplementedException();
+        WordsAnim.enabled = true;
+        DelayThenDoNext(8.5f);
     }
 
 
     private void ThingsDisappear()
     {
-        throw new NotImplementedException();
+        GetComponent<ThingsColorCtrl>().FadeOut();
     }
 
     void ChangeDiaryToOpenAndPlaySoundEffect()
     {
         PlaySFX();
         ShowItemImage();
-        Delay(0.5f, diary_Close_Controller.ChangeToOpen);
+        Delay(1f, diary_Close_Controller.ChangeToOpen);
+        Delay(3f, HideItemImage);
+    }
+    void DoNothing()
+    {
+
+    }
+    void ShowCelebrateImg()
+    {
+        celebrate.SetActive(true);
+    }
+
+    void HideCelebrateImg()
+    {
+        celebrate.SetActive(false);
+        ShowPlayerUIMessage();
+        Delay(2f, TransitionToNextScene);
     }
 }
