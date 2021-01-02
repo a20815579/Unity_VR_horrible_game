@@ -273,6 +273,7 @@ MonoBehaviour:
   LoadWithChapter: 1
   happyBirthdaySheetCtrl: {fileID: 420952784}
   lights: {fileID: 1574683770}
+  friends: []
   isBlocking: 0
 --- !u!1001 &7574261
 PrefabInstance:
@@ -20289,7 +20290,7 @@ PrefabInstance:
     - target: {fileID: 4357308424563611216, guid: 91444f3467fb942c89d46f52680a1f4f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.52
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 4413232324868171410, guid: 91444f3467fb942c89d46f52680a1f4f,
         type: 3}
@@ -22865,6 +22866,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: XR Device Simulator
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598815579406187037, guid: 9f5a24a380916d14db9775daab4fe333,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
