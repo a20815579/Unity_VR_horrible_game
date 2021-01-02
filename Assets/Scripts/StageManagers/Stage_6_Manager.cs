@@ -42,6 +42,7 @@ public class Stage_6_Manager : StageManager
 
     void DelayThenShowMessage()
     {
+        PlayBGM();
         openArm.Wave();
         Delay(1f, ShowPlayerUIMessage);
     }
@@ -85,7 +86,8 @@ public class Stage_6_Manager : StageManager
     {
         HidePlayerUIMessage();
         friends[0].DropHead();
-        PlaySFX();
+        PlaySFX(); //S19
+        PlayBGM();
         DelayThenDoNext(3f);
 
     }
@@ -97,10 +99,13 @@ public class Stage_6_Manager : StageManager
 
     void AllDropHead()
     {
+        PlaySFX();
         for (int i = 1; i < friends.Length; i++)
         {
             friends[i].DropHead();
         }
+        Delay(1.15f, PlaySFX); //S09
+
         DelayThenDoNext(3f);
     }
     
